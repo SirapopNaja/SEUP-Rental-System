@@ -10,13 +10,13 @@ import {
 
 function App() {
   return (
-    <div>
+    
       <Router>
         <Route exact path="/" component={Index}/>
         <Route path="/create" component={Create}/>
         <Route path="/update/:id" component={Update}/>
       </Router>
-    </div>
+    
   );
 }
 

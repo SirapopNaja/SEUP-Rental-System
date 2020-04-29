@@ -6,11 +6,10 @@ export default function Update(props) {
     const [data, setData] = useState({
         product_name:"",
         product_type:"",
-        product_price:"",
+        product_number:"",
         product_picture:"",
         product_details:"",
-        product_address:"",
-        phone_number:""
+
     })
 
     useEffect(() => {
@@ -43,11 +42,11 @@ export default function Update(props) {
         <div>
         <form onSubmit={onSubmit}>
             <div>
-                หัวข้อสินค้าที่คุณต้องการให้ยืม
+            ชื่ออุปกรณ์
                 <input type="text" value={data.product_name} name="product_name" onChange={handle} />
             </div>
             <div>
-                เลือกหมวดหมู่ให้ตรงกับสินค้า
+            เลือกหมวดหมู่ให้ตรงกับสินค้า
                 <select name="product_type" id="product_type" value={data.product_type}  onChange={handle}>
                     <option value= 'One'>One</option>
                     <option value= 'Two'>Two</option>
@@ -55,24 +54,16 @@ export default function Update(props) {
                 </select>
             </div>
             <div>
-                ระบบราคาที่เหมาะสม
-                <input type="number" value={data.product_price} name="product_price" onChange={handle} />
+            จำนวนอุปกรณ์
+                <input type="number" value={data.product_number} name="product_number" onChange={handle} />
             </div>
             <div>
-                รูปภาพสินค้า
+            รูปภาพอุปกรณ์
                 <input type="text" value={data.product_picture} name="product_picture" onChange={handle} />
             </div>
             <div>
-                รายละเอียดสินค้า
+            รายละเอียดอุปกรณ์
                 <input type="text" value={data.product_details} name="product_details" onChange={handle} />
-            </div>
-            <div>
-                ระบุพื่นที่สินค้า
-                <input type="text" value={data.product_address} name="product_address" onChange={handle} />
-            </div>
-            <div>
-                เบอร์โทรติดต่อ
-                <input type="number" value={data.phone_number} name="phone_number" onChange={handle} />
             </div>
             <button type="submit">submit</button>
             

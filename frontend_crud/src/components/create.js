@@ -10,11 +10,9 @@ export default function Create(props) {
     const [data, setData] = useState({
         product_name: "",
         product_type: "",
-        product_price: "",
+        product_number: "",
         product_picture: "",
-        product_details: "",
-        product_address: "",
-        phone_number: ""
+        product_details: ""
     })
 
     const handle = (e) => {
@@ -37,7 +35,7 @@ export default function Create(props) {
     return (
         <form onSubmit={onSubmit}>
             <div>
-                หัวข้อสินค้าที่คุณต้องการให้ยืม
+                ชื่ออุปกรณ์
                 <input type="text" value={data.product_name} name="product_name" onChange={handle} />
             </div>
             <div>
@@ -51,25 +49,19 @@ export default function Create(props) {
                 </select>
             </div>
             <div>
-                ระบบราคาที่เหมาะสม
-                <input type="number" value={data.product_price} name="product_price" onChange={handle} />
+                จำนวนอุปกรณ์
+                <input type="number" value={data.product_number} name="product_number" onChange={handle} />
             </div>
             <div>
-                รูปภาพสินค้า
+                รูปภาพอุปกรณ์
                 <input type="text" value={data.product_picture} name="product_picture" onChange={handle} />
             </div>
+
             <div>
-                รายละเอียดสินค้า
+                รายละเอียดอุปกรณ์
                 <input type="text" value={data.product_details} name="product_details" onChange={handle} />
             </div>
-            <div>
-                ระบุพื่นที่สินค้า
-                <input type="text" value={data.product_address} name="product_address" onChange={handle} />
-            </div>
-            <div>
-                เบอร์โทรติดต่อ
-                <input type="number" value={data.phone_number} name="phone_number" onChange={handle} />
-            </div>
+
             <button type="submit">submit</button>
             <button type="submit" onClick={onSubmitHome}>home</button>
         </form>
