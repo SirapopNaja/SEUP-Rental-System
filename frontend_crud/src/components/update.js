@@ -39,8 +39,9 @@ export default function Update(props) {
     }
 
     return (
-        <div>
-        <form onSubmit={onSubmit}>
+        <div  >
+            
+        <form className="content-wrapper" onSubmit={onSubmit}>
             <div>
             ชื่ออุปกรณ์
                 <input type="text" value={data.product_name} name="product_name" onChange={handle} />

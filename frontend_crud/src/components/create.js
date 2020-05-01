@@ -33,8 +33,10 @@ export default function Create(props) {
         props.history.push("/")
     }
     return (
-        <form onSubmit={onSubmit}>
-            <div>
+        <div className="content-wrapper">
+        <form  onSubmit={onSubmit}>
+            
+            <div >
                 ชื่ออุปกรณ์
                 <input type="text" value={data.product_name} name="product_name" onChange={handle} />
             </div>
@@ -66,7 +68,7 @@ export default function Create(props) {
             <button type="submit" onClick={onSubmitHome}>home</button>
         </form>
 
-
+</div>
     )
 
 }

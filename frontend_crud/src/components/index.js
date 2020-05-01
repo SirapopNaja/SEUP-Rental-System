@@ -28,7 +28,7 @@ export default function Index(props) {
     }
 
     return (
-        <div>
+        <div className="content-wrapper">
             hello word
             {data.map(data => (
                 <tr key={data.id}>
