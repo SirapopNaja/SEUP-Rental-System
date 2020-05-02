@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react'
+import "./styles.css";
 import API from '../api'
 
 export default function Update(props) {
@@ -37,10 +38,8 @@ export default function Update(props) {
             });
         
     }
-
     return (
-        <div  >
-            
+        <div>  
         <form className="content-wrapper" onSubmit={onSubmit}>
             <div>
             ชื่ออุปกรณ์

@@ -64,16 +64,7 @@ export default function Index(props) {
           selector: 'product_number',
           sortable: true,
         },
-        {
-          name: 'อีเมล',
-          selector: 'email',
-          sortable: true,
-        },
-        {
-          name: 'เบอร์โทรศัพท์',
-          selector: 'phonenumber',
-          sortable: true,
-        },
+        
         {
           name: 'แก้ไข',
           center: true,
@@ -94,6 +85,8 @@ export default function Index(props) {
                 setData(res.data)
             })
     }, [])
+
+    
     return (
         <div className="content-wrapper">
                 <DataTable
@@ -101,8 +94,6 @@ export default function Index(props) {
                 columns={columns}
                 data={data}
                 />
-                
-            
         </div>
     )
 
