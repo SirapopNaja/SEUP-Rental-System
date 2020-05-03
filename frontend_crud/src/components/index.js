@@ -6,8 +6,10 @@ import DataTable from 'react-data-table-component';
  const Button = styled.button`
     background: #339FFF;
     color: white;
-    width: 60px;
-    height: 30px;
+    margin-left: 145%;
+    font-size: 15px;
+    width: 130px;
+    height: 40px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -35,6 +37,9 @@ import DataTable from 'react-data-table-component';
 `;
 
 export default function Index(props) {
+  const handleOnclickcreate = () => {
+    props.history.push("/create")
+  }
     const handleOnclickEdit = (id) => {
         console.log(id)
         props.history.push("/update/"+id)
@@ -64,7 +69,6 @@ export default function Index(props) {
           selector: 'product_number',
           sortable: true,
         },
-        
         {
           name: 'แก้ไข',
           center: true,
@@ -90,7 +94,7 @@ export default function Index(props) {
     return (
         <div className="content-wrapper">
                 <DataTable
-                title="อุปกรณ์"
+                title={<Button onClick={() => handleOnclickcreate()}>เพิ่มอุปกรณ์</Button>}
                 columns={columns}
                 data={data}
                 />

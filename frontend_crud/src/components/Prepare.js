@@ -2,13 +2,17 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ImageUploading from "react-images-uploading";
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import "./styles.css";
 import API from '../api'
 
 
 
 export default function Prepare(props) {
-    const maxNumber = 69;
     const onChange = imageList => {
         console.log(imageList);
     };
@@ -25,10 +29,11 @@ export default function Prepare(props) {
         setData(newData)
     }
     const onSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         API.post(`api/product/`, data)
             .then(res => {
                 console.log(res.data);
+                alert("Success")
             });
     }
     const onSubmitHome = (e) => {
@@ -43,7 +48,7 @@ export default function Prepare(props) {
                             <div class="box-header with-border">
                                 <h3 class="box-title">Create Equipment</h3><br></br>
                             </div>
-                            <form role="form" >
+                            <form onSubmit={onSubmit} role="form" >
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label>ชื่ออุปกรณ์</label>
@@ -68,7 +73,7 @@ export default function Prepare(props) {
                                     </div>
                                     {/* <div>
                                         <label>UploadImage</label>
-                                        <ImageUploading value={data.product_picture} name="product_picture" multiple onChange={onChange} maxNumber={maxNumber}>
+                                        <ImageUploading value={data.product_picture} name="product_picture" multiple onChange={onChange}>
                                             {({ imageList, onImageUpload }) => (
                                                 <div className="upload__image-wrapper">
                                                     <button onClick={onImageUpload}>Upload images</button>&nbsp;
@@ -86,12 +91,12 @@ export default function Prepare(props) {
                                     </div> */}
                                     <div class="form-group">
                                         <label>รายละเอียดอุปกรณ์</label>
-                                        <input class="form-control" type="text" value={data.product_details} name="product_details" onChange={handle}></input>
+                                        <textarea class="form-control" type="text" style={{ height: 100 }} value={data.product_details} name="product_details" onChange={handle}></textarea>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <Button type="submit" variant="contained" color="primary" onClick={onSubmit}>submit</Button>
+                                        <Button type="submit" variant="contained" color="primary">submit</Button>
                                     </div>
                                     <div class="col">
                                         <button type="submit" onClick={onSubmitHome}>home</button>

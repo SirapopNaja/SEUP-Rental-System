@@ -119,42 +119,25 @@ export default function Menu() {
             </ul>
           </li>
           <li className="nav-header">EXAMPLES</li>
-          <li className="nav-item">
-            <a href="pages/calendar.html" className="nav-link">
-              <i className="nav-icon fas fa-calendar-alt" />
-              <p>
-                Calendar
-                <span className="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="pages/gallery.html" className="nav-link">
-              <i className="nav-icon far fa-image" />
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
           <li className="nav-item has-treeview">
             <a href="#" className="nav-link">
               <i className="nav-icon far fa-envelope" />
               <p>
-                Mailbox
+                Login
                 <i className="fas fa-angle-left right" />
               </p>
             </a>
             <ul className="nav nav-treeview">
               <li className="nav-item">
-                <a href="pages/mailbox/mailbox.html" className="nav-link">
+                <a href="/Register" className="nav-link">
                   <i className="far fa-circle nav-icon" />
-                  <p>Inbox</p>
+                  <p>Register</p>
                 </a>
               </li>
               <li className="nav-item">
-                <a href="pages/mailbox/compose.html" className="nav-link">
+                <a href="/Login" className="nav-link">
                   <i className="far fa-circle nav-icon" />
-                  <p>Compose</p>
+                  <p>Login</p>
                 </a>
               </li>
               <li className="nav-item">
