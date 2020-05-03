@@ -1,12 +1,15 @@
 import React from 'react';
 import Index from './components/index';
-import Create from './components/Create';
+import Create from './components/create';
+import Request from './components/Request';
 import Prepare from './components/Prepare';
 import Update from './components/update';
 import {  BrowserRouter as Router,  Route, } from "react-router-dom";
-import Footer from './components/Footer';
 import Header from './components/Header';
 import Menu from './components/Menu';
+import PrepareEquipment from './components/PrepareEquipment';
+import Managemembers from './components/Managemembers';
+import Returndevice from './components/Returndevice';
 
 
 function App() {
@@ -17,10 +20,14 @@ function App() {
         <Route exact path="/" component={Index}/>
         <Route path="/Create" component={Create}/>
         <Route path="/Prepare" component={Prepare}/>
+        <Route path="/Request" component={Request}/>
+        <Route path="/PrepareEquipment" component={PrepareEquipment}/>
+        <Route path="/Managemembers" component={Managemembers}/>
+        <Route path="/Returndevice" component={Returndevice}/>
         <Route path="/update/:id" component={Update}/>
       </Router>
       <Menu/>
-      <Footer/>
+      
       </div>
     
   );

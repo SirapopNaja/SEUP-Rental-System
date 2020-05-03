@@ -25,10 +25,11 @@ export default function Prepare(props) {
         setData(newData)
     }
     const onSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         API.post(`api/product/`, data)
             .then(res => {
                 console.log(res.data);
+                alert("success")
             });
     }
     const onSubmitHome = (e) => {
@@ -43,7 +44,7 @@ export default function Prepare(props) {
                             <div class="box-header with-border">
                                 <h3 class="box-title">Create Equipment</h3><br></br>
                             </div>
-                            <form role="form" >
+                            <form onSubmit={onSubmit} role="form" >
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label>ชื่ออุปกรณ์</label>
@@ -64,7 +65,7 @@ export default function Prepare(props) {
                                     </div>
                                     <div>
                                         รูปภาพอุปกรณ์
-                                        <input type="text" value={data.product_picture} name="product_picture" onChange={handle} />
+                                        <input type="file" value={data.product_picture} name="product_picture" onChange={handle} />
                                     </div>
                                     {/* <div>
                                         <label>UploadImage</label>
@@ -86,12 +87,12 @@ export default function Prepare(props) {
                                     </div> */}
                                     <div class="form-group">
                                         <label>รายละเอียดอุปกรณ์</label>
-                                        <input class="form-control" type="text" value={data.product_details} name="product_details" onChange={handle}></input>
+                                        <textarea class="form-control" type="text" value={data.product_details} name="product_details" onChange={handle}></textarea>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <Button type="submit" variant="contained" color="primary" onClick={onSubmit}>submit</Button>
+                                        <Button type="submit" variant="contained" color="primary">submit</Button>
                                     </div>
                                     <div class="col">
                                         <button type="submit" onClick={onSubmitHome}>home</button>
