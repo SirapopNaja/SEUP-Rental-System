@@ -25,100 +25,46 @@ export default function Menu() {
             <a href="/" className="nav-link">
               <i className="nav-icon fas fa-home" />
               <p>
-                Home
+                หน้าแรก
                 <span className="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
           <li className="nav-item has-treeview">
-            <a href="/Prepare" className="nav-link">
+            <a href="/Request" className="nav-link">
               <i className="nav-icon fas fa-check-square" />
               <p>
-                Prepare Equipment
+                คำร้องขอยืมอุปกรณ์
               </p>
             </a>
           </li>
           <li className="nav-item has-treeview">
-            <a href="/Create" className="nav-link">
+            <a href="/PrepareEquipment" className="nav-link">
               <i className="nav-icon fas fa-truck " />
               <p>
-                Return Equipment
+                จัดเตรียมอุปกรณ์
               </p>
             </a>
           </li>
           <li className="nav-item has-treeview">
-            <a href="/Create" className="nav-link">
+            <a href="/Managemembers" className="nav-link">
               <i className="nav-icon fas fa-address-card" />
               <p>
-                Comfirm User
+                จัดการสมาชิก
               </p>
             </a>
           </li>
           <li className="nav-item has-treeview">
-            <a href="#" className="nav-link">
-              <i className="nav-icon fas fa-edit" />
+            <a href="/Returndevice" className="nav-link">
+              <i className="nav-icon fas fa-address-card" />
               <p>
-                Forms
-                <i className="fas fa-angle-left right" />
+                คืนอุปกรณ์
               </p>
             </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="pages/forms/general.html" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="pages/forms/advanced.html" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="pages/forms/editors.html" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="pages/forms/validation.html" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>Validation</p>
-                </a>
-              </li>
-            </ul>
           </li>
-          <li className="nav-item has-treeview">
-            <a href="#" className="nav-link">
-              <i className="nav-icon fas fa-table" />
-              <p>
-                Tables
-                <i className="fas fa-angle-left right" />
-              </p>
-            </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="pages/tables/simple.html" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="pages/tables/data.html" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="pages/tables/jsgrid.html" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>jsGrid</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+         
           <li className="nav-header">EXAMPLES</li>
+<<<<<<< HEAD
           <li className="nav-item has-treeview">
             <a href="#" className="nav-link">
               <i className="nav-icon far fa-envelope" />
@@ -310,77 +256,26 @@ export default function Menu() {
               <p>
                 Level 1
                 <i className="right fas fa-angle-left" />
+=======
+          <li className="nav-item">
+            <a href="pages/calendar.html" className="nav-link">
+              <i className="nav-icon fas fa-calendar-alt" />
+              <p>
+                ตั้งค่า
+                <span className="badge badge-info right">2</span>
               </p>
             </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="#" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>Level 2</p>
-                </a>
-              </li>
-              <li className="nav-item has-treeview">
-                <a href="#" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>
-                    Level 2
-                    <i className="right fas fa-angle-left" />
-                  </p>
-                </a>
-                <ul className="nav nav-treeview">
-                  <li className="nav-item">
-                    <a href="#" className="nav-link">
-                      <i className="far fa-dot-circle nav-icon" />
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="#" className="nav-link">
-                      <i className="far fa-dot-circle nav-icon" />
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="#" className="nav-link">
-                      <i className="far fa-dot-circle nav-icon" />
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a href="#" className="nav-link">
-                  <i className="far fa-circle nav-icon" />
-                  <p>Level 2</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
-              <i className="fas fa-circle nav-icon" />
-              <p>Level 1</p>
+            <a href="pages/gallery.html" className="nav-link">
+              <i className="nav-icon far fa-image" />
+              <p>
+                ออกจากระบบ
+>>>>>>> 1f9ad1de7a543affb63b2fcb7dfdf5e5c24917be
+              </p>
             </a>
           </li>
-          <li className="nav-header">LABELS</li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <i className="nav-icon far fa-circle text-danger" />
-              <p className="text">Important</p>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <i className="nav-icon far fa-circle text-warning" />
-              <p>Warning</p>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <i className="nav-icon far fa-circle text-info" />
-              <p>Informational</p>
-            </a>
-          </li>
+          
         </ul>
       </nav>
       {/* /.sidebar-menu */}
