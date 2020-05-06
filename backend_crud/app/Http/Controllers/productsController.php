@@ -35,10 +35,32 @@ class productsController extends Controller
      */
     public function store(Request $request)
     {
-        $customer = new Product();
-        $customer->fill($request->all());
-        $customer->save();
-        return 'create suscessfully';
+        $request->validate([
+            'product_name' => 'required',
+            'product_type' => 'required',
+            'product_number' => 'required',
+            'product_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'product_details' => 'required',
+            
+        ]);
+
+        $product = new Product();
+
+        if ($request->hasfile('product_picture')) {
+            $image = $request->file('product_picture');
+            $extension = $image->getClientOriginalExtension();
+            $imageName = time() . '.' . $extension;
+            $imagePath = $image->storeAs('', $imageName,'public');
+
+            $product->product_name = $request->input('product_name');
+            $product->product_type = $request->input('product_type');
+            $product->product_number = $request->input('product_number');
+            $product->product_details = $request->input('product_details');
+            $product->product_picture = $imageName;
+
+            $product->save();
+            return $product;
+        }
     }
 
     /**
@@ -72,10 +94,32 @@ class productsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $customer = Product::find($id);
-        $customer->fill($request->all());
-        $customer->save();
-        return 'update suscessfully';
+        $request->validate([
+            'product_name' => 'required',
+            'product_type' => 'required',
+            'product_number' => 'required',
+            'product_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'product_details' => 'required',
+            
+        ]);
+
+        $product = Product::find($id);
+
+        if ($request->hasfile('product_picture')) {
+            $image = $request->file('product_picture');
+            $extension = $image->getClientOriginalExtension();
+            $imageName = time() . '.' . $extension;
+            $imagePath = $image->storeAs('', $imageName,'public');
+
+            $product->product_name = $request->input('product_name');
+            $product->product_type = $request->input('product_type');
+            $product->product_number = $request->input('product_number');
+            $product->product_details = $request->input('product_details');
+            $product->product_picture = $imageName;
+
+            $product->save();
+            return $product;
+        }
     }
 
     /**
