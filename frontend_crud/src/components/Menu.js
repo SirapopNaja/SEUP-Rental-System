@@ -25,7 +25,7 @@ export default function Menu() {
             <a href="/" className="nav-link">
               <i className="nav-icon fas fa-home" />
               <p>
-                หน้าแรก
+                อุปกรณ์
                 <span className="right badge badge-danger">New</span>
               </p>
             </a>

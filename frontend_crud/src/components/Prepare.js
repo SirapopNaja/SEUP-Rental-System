@@ -13,16 +13,23 @@ import API from '../api'
 
 
 export default function Prepare(props) {
+<<<<<<< HEAD
     const onChange = imageList => {
         console.log(imageList);
     };
+=======
+    
+    const [picture, setPicture] = useState("") 
+>>>>>>> e6376f30e26ebf6e90dc91bfd7a2ebc6f7095b86
     const [data, setData] = useState({
         product_name: "",
         product_type: "",
         product_number: "",
-        product_picture: "",
         product_details: ""
     })
+    const handlePicture = (e) =>{
+        setPicture(e.target.files[0])
+    }
     const handle = (e) => {
         const newData = { ...data }
         newData[e.target.name] = e.target.value
@@ -30,7 +37,13 @@ export default function Prepare(props) {
     }
     const onSubmit = (e) => {
         e.preventDefault()
-        API.post(`api/product/`, data)
+        var formData = new FormData();
+        formData.append('product_picture', picture);
+        formData.append('product_name', data.product_name);
+        formData.append('product_type', data.product_type);
+        formData.append('product_number', data.product_number);
+        formData.append('product_details', data.product_details);
+        API.post(`api/product/`, formData)
             .then(res => {
                 console.log(res.data);
                 alert("success")
@@ -69,7 +82,7 @@ export default function Prepare(props) {
                                     </div>
                                     <div>
                                         รูปภาพอุปกรณ์
-                                        <input type="file" value={data.product_picture} name="product_picture" onChange={handle} />
+                                        <input type="file"  name="product_picture" onChange={handlePicture} />
                                     </div>
                                     {/* <div>
                                         <label>UploadImage</label>
@@ -99,7 +112,7 @@ export default function Prepare(props) {
                                         <Button type="submit" variant="contained" color="primary">submit</Button>
                                     </div>
                                     <div class="col">
-                                        <button type="submit" onClick={onSubmitHome}>home</button>
+                                        <Button type="submit" variant="contained" color="primary" onClick={onSubmitHome}>home</Button>
                                     </div>
                                 </div>
                             </form>
