@@ -33,11 +33,7 @@ export default function Prepare(props) {
         API.post(`api/product/`, data)
             .then(res => {
                 console.log(res.data);
-<<<<<<< HEAD
-                alert("Success")
-=======
                 alert("success")
->>>>>>> 1f9ad1de7a543affb63b2fcb7dfdf5e5c24917be
             });
     }
     const onSubmitHome = (e) => {
@@ -95,11 +91,7 @@ export default function Prepare(props) {
                                     </div> */}
                                     <div class="form-group">
                                         <label>รายละเอียดอุปกรณ์</label>
-<<<<<<< HEAD
-                                        <textarea class="form-control" type="text" style={{ height: 100 }} value={data.product_details} name="product_details" onChange={handle}></textarea>
-=======
                                         <textarea class="form-control" type="text" value={data.product_details} name="product_details" onChange={handle}></textarea>
->>>>>>> 1f9ad1de7a543affb63b2fcb7dfdf5e5c24917be
                                     </div>
                                 </div>
                                 <div class="form-row">
