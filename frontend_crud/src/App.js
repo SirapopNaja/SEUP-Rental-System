@@ -23,6 +23,8 @@ function App() {
         <Route path="/Create" component={Create}/>
         <Route path="/Prepare" component={Prepare}/>
         <Route path="/Request" component={Request}/>
+        <Route path="/Login" component={Login}/>
+        <Route path="/Login" component={Login}/>
         <Route path="/PrepareEquipment" component={PrepareEquipment}/>
         <Route path="/Managemembers" component={Managemembers}/>
         <Route path="/Returndevice" component={Returndevice}/>

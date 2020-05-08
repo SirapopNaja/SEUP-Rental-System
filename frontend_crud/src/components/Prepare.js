@@ -13,14 +13,7 @@ import API from '../api'
 
 
 export default function Prepare(props) {
-<<<<<<< HEAD
-    const onChange = imageList => {
-        console.log(imageList);
-    };
-=======
-    
     const [picture, setPicture] = useState("") 
->>>>>>> e6376f30e26ebf6e90dc91bfd7a2ebc6f7095b86
     const [data, setData] = useState({
         product_name: "",
         product_type: "",

@@ -1,16 +1,8 @@
 import React, { useState } from 'react'
-import ReactDOM from "react-dom";
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import ImageUploading from "react-images-uploading";
 import "./styles.css";
 import API from '../api'
 
 export default function Create(props) {
-    const maxNumber = 69;
     const onChange = imageList => {
         console.log(imageList);
     };
@@ -48,7 +40,7 @@ export default function Create(props) {
                     เลือกหมวดหมู่ให้ตรงกับสินค้า
                 <select name="product_type" id="product_type" value={data.product_type} onChange={handle}>
                         <option value=""></option>
-                        <option value={data.product_name} label={data.product_name}></option>
+                        <option value={data.product_name} label={data.product_type}></option>
                         <option value="Two">Two</option>
                         <option value="Three">Three</option>
 

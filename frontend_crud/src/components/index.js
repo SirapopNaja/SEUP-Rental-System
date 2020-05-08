@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../api";
 import styled from "styled-components";
 import DataTable from "react-data-table-component";
+import "./App.css";
 
 const Button = styled.button`
   background: #339fff;
@@ -36,6 +37,9 @@ const Warpper = styled.div`
   width: 100%;
 `;
 
+
+
+
 export default function Index(props) {
   const handleOnclickEdit = (id) => {
     console.log(id);
@@ -60,10 +64,10 @@ export default function Index(props) {
     // },
     {
       name: "รูป",
-      cell:(row)=>(
-        <img src={"http://127.0.0.1:8000/storage/"+row.product_picture} alt={row.product_name} height="42" width="42"/>
+      cell: (row) => (
+        <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="42" width="42" />
       )
-      
+
     },
     {
       name: "ชื่ออุปกรณ์",
@@ -102,6 +106,17 @@ export default function Index(props) {
         </DeleteButton>
       ),
     },
+    {
+      name: "Test",
+      center: true,
+      cell: (row) => (
+        <div class="input-group">
+          <input type="button" value="-" class="button-minus" data-field="quantity"/>
+          <input type="number" step="1" max="" value="0" name="quantity" class="quantity-field"/>
+          <input type="button" value="+" class="button-plus" data-field="quantity"/>
+        </div>
+      ),
+    },
   ];
   const [data, setData] = useState([]);
 
@@ -113,9 +128,9 @@ export default function Index(props) {
   }, []);
 
   return (
-       
+
     <div className="content-wrapper">
-     
+
       <DataTable
         title={
           <Button onClick={() => handleOnclickprepare()}>เพิ่มอุปกรณ์</Button>
