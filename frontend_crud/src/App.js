@@ -24,7 +24,7 @@ function App() {
         <Route path="/Prepare" component={Prepare}/>
         <Route path="/Request" component={Request}/>
         <Route path="/Login" component={Login}/>
-        <Route path="/Login" component={Login}/>
+        <Route path="/Register" component={Register}/>
         <Route path="/PrepareEquipment" component={PrepareEquipment}/>
         <Route path="/Managemembers" component={Managemembers}/>
         <Route path="/Returndevice" component={Returndevice}/>
