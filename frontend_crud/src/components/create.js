@@ -40,8 +40,13 @@ export default function Create(props) {
                     เลือกหมวดหมู่ให้ตรงกับสินค้า
                 <select name="product_type" id="product_type" value={data.product_type} onChange={handle}>
                         <option value=""></option>
+<<<<<<< HEAD
                         <option value={data.product_name} label={data.product_type}></option>
                         <option value="Two">Two</option>
+=======
+                        <option value="กลุ่มทำสื่อ">กลุ่มทำสื่อ</option>
+                        <option value="กลุ่มเครื่องมือ">กลุ่มเครื่องมือ</option>
+>>>>>>> c2b898482c16070000eaea0f5c997af55fee1e14
                         <option value="Three">Three</option>
 
                     </select>

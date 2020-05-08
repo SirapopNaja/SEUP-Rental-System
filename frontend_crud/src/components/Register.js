@@ -49,15 +49,11 @@ export default function Register(props) {
                                     </div>
                                     <div class="form-group">
                                         <label>ชื่อ</label>
-                                        <Grid item xs={12} sm={6}>
                                         <input class="form-control" type="text" ></input>
-                                        </Grid>
                                     </div>
                                     <div class="form-group">
                                         <label>นามสกุล</label>
-                                        <Grid item xs={12} sm={6}>
                                         <input class="form-control" type="text" ></input>
-                                        </Grid>
                                     </div>
                                     <div class="form-group">
                                         <label>เบอร์โทรศัพท์</label>
@@ -99,7 +95,7 @@ export default function Register(props) {
                                             )}
                                         </ImageUploading>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group"><br></br>
                                         <input  type="checkbox" ></input>
                                         <label >มึงอ่านกฏแล้ว</label>
                                     </div>
