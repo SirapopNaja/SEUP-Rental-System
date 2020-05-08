@@ -18,5 +18,12 @@ use phpDocumentor\Reflection\Types\Resource_;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// อุปกรณ์
 Route::resource('product', 'productsController');
+
+//login and register
+Route::post('login', 'UserController@login');
+Route::post('register', 'UserController@register');
+Route::group(['middleware' => 'auth:api'], function(){
+Route::post('details', 'UserController@details');
+});
