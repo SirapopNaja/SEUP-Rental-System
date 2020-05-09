@@ -22,7 +22,7 @@ export default function Menu() {
           {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
           <li className="nav-item">
-            <a href="/" className="nav-link">
+            <a href="/index" className="nav-link">
               <i className="nav-icon fas fa-home" />
               <p>
                 อุปกรณ์
@@ -65,7 +65,7 @@ export default function Menu() {
          
           <li className="nav-header">EXAMPLES</li>
           <li className="nav-item">
-            <a href="pages/calendar.html" className="nav-link">
+            <a href="/" className="nav-link">
               <i className="nav-icon fas fa-calendar-alt" />
               <p>
                 ตั้งค่า
@@ -74,7 +74,7 @@ export default function Menu() {
             </a>
           </li>
           <li className="nav-item">
-            <a href="pages/gallery.html" className="nav-link">
+            <a href="/" className="nav-link">
               <i className="nav-icon far fa-image" />
               <p>
                 ออกจากระบบ

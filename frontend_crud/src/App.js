@@ -1,6 +1,5 @@
 import React from 'react';
 import Index from './components/index';
-import Create from './components/Create';
 import Request from './components/Request';
 import Prepare from './components/Prepare';
 import Update from './components/update';
@@ -16,22 +15,26 @@ import Returndevice from './components/Returndevice';
 
 function App() {
   return (
+   
     <div> 
+       <Router>
+        <Route exact path="/" component={Login}/>
+        <Route path="/Register" component={Register}/>
+      </Router>
       <Header/>
       <Router>
-        <Route exact path="/" component={Index}/>
-        <Route path="/Create" component={Create}/>
+        <Route path="/index" component={Index}/>
         <Route path="/Prepare" component={Prepare}/>
         <Route path="/Request" component={Request}/>
-        <Route path="/Login" component={Login}/>
-        <Route path="/Register" component={Register}/>
         <Route path="/PrepareEquipment" component={PrepareEquipment}/>
         <Route path="/Managemembers" component={Managemembers}/>
         <Route path="/Returndevice" component={Returndevice}/>
         <Route path="/update/:id" component={Update}/>
-      </Router>
-      <Menu/>
+        </Router>
+        <Menu/>
+        
       
+       
       </div>
     
   );

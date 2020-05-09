@@ -32,20 +32,41 @@ public $successStatus = 200;
     { 
         $validator = Validator::make($request->all(), [ 
             'name' => 'required', 
+            'last_name' => 'required',
+            'phone_number' => 'required',
             'email' => 'required|email', 
             'password' => 'required', 
-            'c_password' => 'required|same:password', 
+            'c_password' => 'required|same:password',
+            'name_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-if ($validator->fails()) { 
+    if ($validator->fails()) { 
             return response()->json(['error'=>$validator->errors()], 401);            
         }
-$input = $request->all(); 
-        $input['password'] = bcrypt($input['password']); 
-        $user = User::create($input); 
-        $success['token'] =  $user->createToken('MyApp')-> accessToken; 
-        $success['name'] =  $user->name;
-return response()->json(['success'=>$success], $this-> successStatus); 
+    if ($request->hasfile('name_picture','ssn_picture')) {
+            $image = $request->file('name_picture');
+            $image2 = $request->file('ssn_picture');
+            $extension = $image->getClientOriginalExtension();
+            $extension2 = $image2->getClientOriginalExtension();
+            $imageName = time() . '.' . $extension;
+            $imageName2 = time() . '.' . $extension2;
+            $imagePath = $image->storeAs('', $imageName,'public');
+            $imagePath2 = $image2->storeAs('', $imageName2,'public');
+
+    
+            $user = User::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'last_name' => $request->input('last_name'),
+                'phone_number' => $request->input('phone_number'),
+                'password' => bcrypt('password'),
+                'name_picture' => $imageName,
+                'ssn_picture' => $imageName2
+                
+            ]);
+            $user['token'] =  $user->createToken('MyApp')->accessToken;
+            return response()->json(['user'=>$user], $this->successStatus);
     }
+}
 /** 
      * details api 
      * 
