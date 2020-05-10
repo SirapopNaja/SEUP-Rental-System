@@ -56,18 +56,12 @@ public $successStatus = 200;
             $imagePath2 = $image2->storeAs('', $imageName2,'public');
 
     
-            $user = User::create([
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'last_name' => $request->input('last_name'),
-                'company' => $request->input('company'),
-                'position' => $request->input('position'),
-                'phone_number' => $request->input('phone_number'),
-                'password' => bcrypt('password'),
-                'name_picture' => $imageName,
-                'ssn_picture' => $imageName2
-                
-            ]);
+            $input = $request->all();
+            $input['password'] = bcrypt($input['password']);
+            $input['name_picture'] = $imageName;
+            $input['ssn_picture'] = $imageName2;
+            $user = User::create($input);
+            
             $user['token'] =  $user->createToken('MyApp')->accessToken;
             return response()->json(['user'=>$user], $this->successStatus);
     }
