@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,6 +12,8 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import API from '../api'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,8 +47,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+export default function Login(props) {
   const classes = useStyles();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+   
+})
+const handle = (e) => {
+  const newData = { ...data }
+  newData[e.target.name] = e.target.value
+  setData(newData)
+}
+const onSubmit = (e) => {
+  e.preventDefault();
+  var formData = new FormData();
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+  API.post(`api/login/`, formData)
+      .then(res => {
+          console.log(res.data);
+      });
+  props.history.push("/index")
+}
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -57,7 +81,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form onSubmit={onSubmit} className={classes.form} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
@@ -66,6 +90,8 @@ export default function Login() {
               id="email"
               label="Email Address"
               name="email"
+              value={data.email}
+              onChange={handle}
               autoComplete="email"
               autoFocus
             />
@@ -78,12 +104,14 @@ export default function Login() {
               label="Password"
               type="password"
               id="password"
+              value={data.password}
+              onChange={handle}
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -107,11 +135,11 @@ export default function Login() {
                 <Link href="#" variant="body2">     
                 </Link>
               </Grid>
-              <Grid item>
+              {/* <Grid item>
                 <Link href="/Register" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
-              </Grid>
+              </Grid> */}
             </Grid>
             <Box mt={5}>
             </Box>

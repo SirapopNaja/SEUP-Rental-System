@@ -35,9 +35,12 @@ public $successStatus = 200;
             'last_name' => 'required',
             'phone_number' => 'required',
             'email' => 'required|email', 
-            'password' => 'required', 
+            'password' => 'required',
+            'company' => 'required',
+            'position' => 'required',  
             'c_password' => 'required|same:password',
             'name_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'ssn_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
     if ($validator->fails()) { 
             return response()->json(['error'=>$validator->errors()], 401);            
@@ -57,6 +60,8 @@ public $successStatus = 200;
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'last_name' => $request->input('last_name'),
+                'company' => $request->input('company'),
+                'position' => $request->input('position'),
                 'phone_number' => $request->input('phone_number'),
                 'password' => bcrypt('password'),
                 'name_picture' => $imageName,

@@ -45,10 +45,46 @@ const useStyles = makeStyles((theme) => ({
   }));
 export default function Register(props) {
     const classes = useStyles();
+    const [data, setData] = useState({
+      name: "",
+      email: "",
+      password: "",
+      c_password: "",
+      last_name: "",
+      phone_number: "",
+      company: "",
+      position: "",
+    })
     const [picture, setPicture] = useState("") 
     const handlePicture = (e) =>{
         setPicture(e.target.files[0])
     }
+    const handle = (e) => {
+      const newData = { ...data }
+      newData[e.target.name] = e.target.value
+      setData(newData)
+  }
+  const onSubmit = (e) => {
+    e.preventDefault()
+    var formData = new FormData();
+    formData.append('name_picture', picture);
+    formData.append('ssn_picture', picture);
+    formData.append('company', data.company);
+    formData.append('position', data.position);
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+    formData.append('c_password', data.c_password);
+    formData.append('last_name', data.last_name);
+    formData.append('phone_number', data.phone_number);
+    API.post(`api/register/`, formData)
+        .then(res => {
+            console.log(res.data);
+            alert("success")
+            props.history.push("/")
+        });
+        
+}
     return (
         /*<div class="content-wrapper">
             <section class="content">
@@ -142,7 +178,7 @@ export default function Register(props) {
           <Typography component="h1" variant="h5">
             Register
           </Typography>
-          <form className={classes.form} noValidate>
+          <form onSubmit={onSubmit} className={classes.form} noValidate>
           <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -150,10 +186,12 @@ export default function Register(props) {
               margin="normal"
               required
               fullWidth
-              name="องค์กร"
+              name="company"
               label="องค์กร"
               type="องค์กร"
               id="องค์กร"
+              value={data.company}
+              onChange={handle}
               autoComplete="องค์กร"
             />
             </Grid>
@@ -163,10 +201,12 @@ export default function Register(props) {
               margin="normal"
               required
               fullWidth
-              name="ตำแหน่ง"
+              name="position"
               label="ตำแหน่ง"
               type="ตำแหน่ง"
               id="ตำแหน่ง"
+              value={data.position}
+              onChange={handle}
               autoComplete="ตำแหน่ง"
             />
             </Grid>
@@ -178,6 +218,8 @@ export default function Register(props) {
               id="email"
               label="Email Address"
               name="email"
+              value={data.email}
+              onChange={handle}
               autoComplete="email"
               autoFocus
             />
@@ -190,6 +232,8 @@ export default function Register(props) {
               label="Password"
               type="password"
               id="password"
+              value={data.password}
+              onChange={handle}
               autoComplete="current-password"
             />
             <TextField
@@ -197,10 +241,12 @@ export default function Register(props) {
               margin="normal"
               required
               fullWidth
-              name="confirmpassword"
+              name="c_password"
               label="Confirm Password"
               type="confirmpassword"
               id="confirmpassword"
+              value={data.c_password}
+              onChange={handle}
               autoComplete="comfirm-password"
             />
             <Grid item xs={12} sm={6}>
@@ -209,10 +255,12 @@ export default function Register(props) {
               margin="normal"
               required
               fullWidth
-              name="First Name"
+              name="name"
               label="First Name"
               type="First Name"
               id="First Name"
+              value={data.name}
+              onChange={handle}
               autoComplete="fname"
             />
             </Grid>
@@ -222,10 +270,12 @@ export default function Register(props) {
               margin="normal"
               required
               fullWidth
-              name="Last Name"
+              name="last_name"
               label="Last Name"
               type="Last Name"
               id="Last Name"
+              value={data.last_name}
+              onChange={handle}
               autoComplete="lname"
             />
             </Grid>
@@ -234,26 +284,28 @@ export default function Register(props) {
               margin="normal"
               required
               fullWidth
-              name="Phone"
+              name="phone_number"
               label="Phone Number"
               type="Phone"
               id="Phone"
+              value={data.phone_number}
+              onChange={handle}
               autoComplete="current-phone"
             />
             <div>
                 รูปบัตรประชาชน
-                <input type="file"  name="product_picture" onChange={handlePicture} />
+                <input type="file"  name="name_picture" onChange={handlePicture} />
             </div>
             <div>
                 รูปถ่ายปัจจุบัน
-                <input type="file"  name="product_picture" onChange={handlePicture} />
+                <input type="file"  name="ssn_picture" onChange={handlePicture} />
             </div>
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="ฉันอ่านและเข้าใจกฎแล้ว"
             />
-            </Grid>
+            </Grid> */}
             <Button
               type="submit"
               fullWidth
