@@ -4,6 +4,8 @@ import styled from "styled-components";
 import DataTable from "react-data-table-component";
 import "./App.css";
 
+
+
 const Button = styled.button`
   background: #339fff;
   font-size: 15px;
@@ -130,7 +132,7 @@ export default function Index(props) {
   return (
 
     <div className="content-wrapper">
-
+      
       <DataTable
         title={
           <Button onClick={() => handleOnclickprepare()}>เพิ่มอุปกรณ์</Button>
@@ -138,6 +140,7 @@ export default function Index(props) {
         columns={columns}
         data={data}
       />
+      
     </div>
   );
 }

@@ -43,12 +43,12 @@ public $successStatus = 200;
             return response()->json(['error'=>$validator->errors()], 401);            
         }
     if ($request->hasfile('name_picture','ssn_picture')) {
-            $image = $request->file('name_picture');
-            $image2 = $request->file('ssn_picture');
+            $image = $request->file('name_picture',);
+            $image2 = $request->file('ssn_picture',);
             $extension = $image->getClientOriginalExtension();
             $extension2 = $image2->getClientOriginalExtension();
-            $imageName = time() . '.' . $extension;
-            $imageName2 = time() . '.' . $extension2;
+            $imageName = time().'1' . '.' . $extension;
+            $imageName2 = time().'2' . '.' . $extension2;
             $imagePath = $image->storeAs('', $imageName,'public');
             $imagePath2 = $image2->storeAs('', $imageName2,'public');
 
