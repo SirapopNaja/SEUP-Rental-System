@@ -64,13 +64,13 @@ export default function Index(props) {
     //   selector: "product_picture",
     //   sortable: true,
     // },
-    {
-      name: "รูป",
-      cell: (row) => (
-        <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="42" width="42" />
-      )
+    // {
+    //   name: "รูป",
+    //   cell: (row) => (
+    //     <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="42" width="42" />
+    //   )
 
-    },
+    // },
     {
       name: "ชื่ออุปกรณ์",
       selector: "product_name",
@@ -108,17 +108,17 @@ export default function Index(props) {
         </DeleteButton>
       ),
     },
-    {
-      name: "Test",
-      center: true,
-      cell: (row) => (
-        <div class="input-group">
-          <input type="button" value="-" class="button-minus" data-field="quantity"/>
-          <input type="number" step="1" max="" value="0" name="quantity" class="quantity-field"/>
-          <input type="button" value="+" class="button-plus" data-field="quantity"/>
-        </div>
-      ),
-    },
+    // {
+    //   name: "Test",
+    //   center: true,
+    //   cell: (row) => (
+    //     <div class="input-group">
+    //       <input type="button" value="-" class="button-minus" data-field="quantity"/>
+    //       <input type="number" step="1" max="" value="0" name="quantity" class="quantity-field"/>
+    //       <input type="button" value="+" class="button-plus" data-field="quantity"/>
+    //     </div>
+    //   ),
+    // },
   ];
   const [data, setData] = useState([]);
 

@@ -17,12 +17,13 @@ function App() {
   return (
    
     <div> 
-       <Router>
-        <Route exact path="/" component={Login}/>
-        <Route path="/Register" component={Register}/>
-      </Router>
-      <Header/>
+      {(window.location.pathname!=='/')&&(window.location.pathname!=='/Register')&&<div>
+        <Header/>
+        <Menu/>
+      </div>}    
       <Router>
+      <Route exact path="/" component={Login}/>
+        <Route path="/Register" component={Register}/>
         <Route path="/index" component={Index}/>
         <Route path="/Prepare" component={Prepare}/>
         <Route path="/Request" component={Request}/>
@@ -31,8 +32,7 @@ function App() {
         <Route path="/Returndevice" component={Returndevice}/>
         <Route path="/update/:id" component={Update}/>
         </Router>
-        <Menu/>
-        
+       
       
        
       </div>

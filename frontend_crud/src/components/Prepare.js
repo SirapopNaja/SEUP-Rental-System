@@ -43,7 +43,7 @@ export default function Prepare(props) {
             });
     }
     const onSubmitHome = (e) => {
-        props.history.push("/")
+        props.history.push("/index")
     }
     return (
         <div class="content-wrapper">
@@ -66,7 +66,7 @@ export default function Prepare(props) {
                                             <option value=""></option>
                                             <option value="กลุ่มทำสื่อ">กลุ่มทำสื่อ</option>
                                             <option value="กลุ่มเครื่องมือ">กลุ่มเครื่องมือ</option>
-                                            <option value="Three">Three</option>
+                                            <option value="อุปกรณ์อื่นๆ">อุปกรณ์อื่นๆ</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
