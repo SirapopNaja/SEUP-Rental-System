@@ -243,7 +243,7 @@ export default function Register(props) {
               fullWidth
               name="c_password"
               label="Confirm Password"
-              type="confirmpassword"
+              type="password"
               id="confirmpassword"
               value={data.c_password}
               onChange={handle}

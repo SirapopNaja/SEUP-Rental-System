@@ -21,9 +21,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // อุปกรณ์
 Route::resource('product', 'productsController');
 
+
 //login and register
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
+Route::get('show', 'UserController@show');
+Route::delete('/destroy/{id}', 'UserController@destroy');
+Route::group(['middleware' => 'auth:api'], function(){
+});
+
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'UserController@details');
 });

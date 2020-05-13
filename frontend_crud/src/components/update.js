@@ -4,6 +4,7 @@ import API from '../api'
 import Button from '@material-ui/core/Button';
 
 export default function Update(props) {
+    
     const [picture, setPicture] = useState(null) 
     const [data, setData] = useState({
         product_name:"",

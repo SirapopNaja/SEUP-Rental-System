@@ -39,7 +39,7 @@ const Warpper = styled.div`
   width: 100%;
 `;
 
-
+console.log(localStorage.getItem('MyApp'))
 
 
 export default function Index(props) {
@@ -58,6 +58,7 @@ export default function Index(props) {
       setData(myData);
     });
   };
+
   const columns = [
     // {
     //   name: "รูป",
