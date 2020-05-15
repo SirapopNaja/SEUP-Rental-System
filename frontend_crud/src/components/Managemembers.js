@@ -42,9 +42,9 @@ export default function Managemembers(props) {
     console.log(id);
     props.history.push("/Requestmembers/" + id);
   };
-  const handleOnclickprepare = () => {
-    props.history.push("/Requestmembers");
-  };
+  // const handleOnclickprepare = () => {
+  //   props.history.push("/Requestmembers");
+  // };
 
   const onRemove = (id) => {
     API.delete(`api/destroy/` + id).then((res) => {
@@ -88,10 +88,10 @@ export default function Managemembers(props) {
     },
 
     {
-      name: "แก้ไข",
+      name: "แก้ไข้",
       center: true,
       cell: (row) => (
-        <EditButton onClick={() => handleOnclickEdit(row.id)}>แก้ไข</EditButton>
+        <EditButton onClick={() => handleOnclickEdit(row.id)}>ดูข้อมูล</EditButton>
       ),
     },
     {

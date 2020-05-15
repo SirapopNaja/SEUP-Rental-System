@@ -19,7 +19,7 @@ export default function Update(props) {
 
     useEffect(() => {
         const id = props.match.params.id
-        API.get(`api/product/`+id)
+        API.get(`api/update/`+id)
             .then(res =>{
                 console.log(res.data)
                 setData(res.data)

@@ -27,6 +27,7 @@ Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::get('show', 'UserController@show');
 Route::delete('/destroy/{id}', 'UserController@destroy');
+Route::post('/userupdate/{id}', 'UserController@userupdate');
 Route::group(['middleware' => 'auth:api'], function(){
 });
 

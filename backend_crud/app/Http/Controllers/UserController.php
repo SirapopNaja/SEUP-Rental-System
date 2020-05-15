@@ -76,7 +76,7 @@ public $successStatus = 200;
         $user = Auth::user(); 
         return response()->json([$user], $this->successStatus);
     } 
-    public function update(Request $request, $id)
+    public function userupdate(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',

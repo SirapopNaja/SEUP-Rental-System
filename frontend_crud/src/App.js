@@ -11,6 +11,7 @@ import Menu from './components/Menu';
 import PrepareEquipment from './components/PrepareEquipment';
 import Managemembers from './components/Managemembers';
 import Returndevice from './components/Returndevice';
+import Requestmembers from './components/Requestmembers';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/PrepareEquipment" component={PrepareEquipment}/>
         <Route path="/Managemembers" component={Managemembers}/>
         <Route path="/Returndevice" component={Returndevice}/>
+        <Route path="/Requestmembers/:id" component={Requestmembers}/>
         <Route path="/update/:id" component={Update}/>
         </Router>
        

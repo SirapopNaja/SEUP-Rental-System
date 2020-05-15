@@ -39,8 +39,6 @@ const Warpper = styled.div`
   width: 100%;
 `;
 
-console.log(localStorage.getItem('MyApp'))
-
 
 export default function Index(props) {
   const handleOnclickEdit = (id) => {
