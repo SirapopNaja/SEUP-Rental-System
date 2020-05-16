@@ -5,8 +5,8 @@ export default function Menu(props) {
 
   useEffect(() => {
     API.post(`api/details/`).then((res) => {
-      console.log('setcon',res.data);
-      setName(res.data);
+      console.log('setcon',res.data.user);
+      setName(res.data.user);
     });
    
   }, []);
@@ -26,11 +26,10 @@ export default function Menu(props) {
               />
             </div>
 
-            {name.map((item, i) => (
-              <div key={i} className="info">
-                <a className="d-block"> {item.name+" "+item.last_name} </a>
+              <div  className="info">
+                <a className="d-block"> {name.name+" "+name.last_name} </a>
               </div>
-            ))} 
+          
           </div>
           {/* Sidebar Menu */}
           <nav className="mt-2">
@@ -42,21 +41,21 @@ export default function Menu(props) {
             >
               {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
-              <li className="nav-item">
+          {name.person_type === 3 ?<li className="nav-item has-treeview">
                 <a href="/index" className="nav-link">
                   <i className="nav-icon fas fa-home" />
-                  <p>
-                    อุปกรณ์
-                    <span className="right badge badge-danger">New</span>
-                  </p>
+                  <p>อุปกรณ์</p>
                 </a>
-              </li>
-              <li className="nav-item has-treeview">
+              </li> : ""}
+
+          <li className="nav-item has-treeview">
                 <a href="/Request" className="nav-link">
                   <i className="nav-icon fas fa-check-square" />
                   <p>คำร้องขอยืมอุปกรณ์</p>
                 </a>
-              </li>
+              </li> 
+             
+         
               <li className="nav-item has-treeview">
                 <a href="/PrepareEquipment" className="nav-link">
                   <i className="nav-icon fas fa-truck " />
@@ -65,13 +64,13 @@ export default function Menu(props) {
               </li>
               <li className="nav-item has-treeview">
                 <a href="/Managemembers" className="nav-link">
-                  <i className="nav-icon fas fa-address-card" />
+                  <i className="nav-icon fas fa-user-plus" />
                   <p>จัดการสมาชิก</p>
                 </a>
               </li>
               <li className="nav-item has-treeview">
                 <a href="/Returndevice" className="nav-link">
-                  <i className="nav-icon fas fa-address-card" />
+                  <i className="nav-icon fas fa-file-powerpoint" />
                   <p>คืนอุปกรณ์</p>
                 </a>
               </li>

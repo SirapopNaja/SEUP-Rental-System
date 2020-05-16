@@ -43,9 +43,6 @@ export default function Requestmembers(props) {
         formData.append('company', data.company);
         formData.append('position', data.position);
         formData.append('name', data.name);
-        formData.append('email', data.email);
-        formData.append('password', data.password);
-        formData.append('c_password', data.c_password);
         formData.append('last_name', data.last_name);
         formData.append('phone_number', data.phone_number);
         formData.append('_method', 'put');
@@ -67,7 +64,7 @@ export default function Requestmembers(props) {
                     <div class="col-md-6">
                         <div class="box box-primary">
                             <div class="box-header with-border">
-                                <h3 class="box-title">แก้ไข้สมาชิก</h3><br></br>
+                                <h3 class="box-title">ตรวจสอบข้อมูลสมาชิก</h3><br></br>
                             </div>
                             <form  onSubmit={onSubmit} role="form" >
                                 <div class="box-body">
@@ -79,14 +76,7 @@ export default function Requestmembers(props) {
                                         <label>ตำแหน่ง</label>
                                         <input class="form-control" type="text" value={data.position} name="position" onChange={handle}></input>
                                     </div>
-                                    <div class="form-group">
-                                        <label>email</label>
-                                        <input class="form-control" type="text" value={data.email} name="email" onChange={handle}></input>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>password</label>
-                                        <input class="form-control" type="text" value={data.password} name="password" onChange={handle}></input>
-                                    </div>
+                                  
                                     <div class="form-group">
                                         <label>first_name</label>
                                         <input class="form-control" type="text" value={data.name} name="name" onChange={handle}></input>
@@ -107,14 +97,6 @@ export default function Requestmembers(props) {
                                             <option value="2">อาจารย์</option>
                                             <option value="3">แอดมิน</option>
                                         </select>
-                                    </div>
-                                    <div>
-                                        รูปภาพตัวตน
-                                        <input type="file"  name="name_picture" onChange={handlePicture} />
-                                    </div>
-                                    <div>
-                                        รูปภาพบัตรประชาชน
-                                        <input type="file"  name="ssn_picture" onChange={handlePicture} />
                                     </div>
                                     
                                 </div>

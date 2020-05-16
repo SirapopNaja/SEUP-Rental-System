@@ -54,6 +54,7 @@ export default function Login(props) {
   const [data, setData] = useState({
     email: "",
     password: "",
+
    
 })
 const handle = (e) => {
@@ -69,9 +70,10 @@ const onSubmit = (e) => {
     API.post('api/login/',formData)
     .then(res => {
         console.log(res.data.success.token)
-        localStorage.setItem('access_token', res.data.success.token);
+        localStorage.setItem('access_token',res.data.success.token);
         props.history.push('/index')
     })
+  
   }
   return (
     <Grid container component="main" className={classes.root}>
