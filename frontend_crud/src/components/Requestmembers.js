@@ -22,7 +22,7 @@ export default function Requestmembers(props) {
     }
     useEffect(() => {
         const id = props.match.params.id
-        API.get(`api/userupdate/`+id)
+        API.get(`api/getuserbyid/`+id)
             .then(res =>{
                 console.log(res.data)
                 setData(res.data)
@@ -38,19 +38,20 @@ export default function Requestmembers(props) {
     const onSubmit = (e) => {
         e.preventDefault()
         var formData = new FormData();
-        formData.append('name_picture', picture);
-        formData.append('ssn_picture', picture);
-        formData.append('company', data.company);
-        formData.append('position', data.position);
-        formData.append('name', data.name);
-        formData.append('last_name', data.last_name);
-        formData.append('phone_number', data.phone_number);
+        // formData.append('name_picture', picture);
+        // formData.append('ssn_picture', picture);
+        // formData.append('company', data.company);
+        // formData.append('position', data.position);
+        // formData.append('name', data.name);
+        // formData.append('last_name', data.last_name);
+        // formData.append('phone_number', data.phone_number);
+        formData.append('person_type', data.person_type);
         formData.append('_method', 'put');
         const id = props.match.params.id
-        API.post(`api/update/`+id,formData)
+        API.post(`api/userupdate/`+id,formData)
             .then(res => {
                 console.log(res.data);
-                props.history.push("/index")
+                props.history.push("/Managemembers")
             });
         
     }

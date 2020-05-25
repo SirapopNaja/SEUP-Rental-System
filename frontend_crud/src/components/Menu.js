@@ -41,6 +41,8 @@ export default function Menu(props) {
             >
               {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
+
+         {/* addmin */}
           {name.person_type === 3 ?<li className="nav-item has-treeview">
                 <a href="/index" className="nav-link">
                   <i className="nav-icon fas fa-home" />
@@ -48,32 +50,71 @@ export default function Menu(props) {
                 </a>
               </li> : ""}
 
-          <li className="nav-item has-treeview">
+              {name.person_type === 3 ?<li className="nav-item has-treeview">
                 <a href="/Request" className="nav-link">
                   <i className="nav-icon fas fa-check-square" />
                   <p>คำร้องขอยืมอุปกรณ์</p>
                 </a>
-              </li> 
-             
-         
-              <li className="nav-item has-treeview">
+              </li> : ""}
+
+
+              {name.person_type === 3 ?<li className="nav-item has-treeview">
                 <a href="/PrepareEquipment" className="nav-link">
-                  <i className="nav-icon fas fa-truck " />
+                  <i className="nav-icon fas fa-truck" />
                   <p>จัดเตรียมอุปกรณ์</p>
                 </a>
-              </li>
-              <li className="nav-item has-treeview">
+              </li> : ""}
+
+              {name.person_type === 3 ?<li className="nav-item has-treeview">
                 <a href="/Managemembers" className="nav-link">
                   <i className="nav-icon fas fa-user-plus" />
                   <p>จัดการสมาชิก</p>
                 </a>
-              </li>
-              <li className="nav-item has-treeview">
+              </li> : ""}
+
+              {name.person_type === 3 ?<li className="nav-item has-treeview">
                 <a href="/Returndevice" className="nav-link">
                   <i className="nav-icon fas fa-file-powerpoint" />
                   <p>คืนอุปกรณ์</p>
                 </a>
-              </li>
+              </li> : ""}
+        
+             
+         {/* user และ อาจารย์ */} 
+         {name.person_type === 1 ?<li className="nav-item has-treeview">
+                <a href="/studenthome" className="nav-link">
+                  <i className="nav-icon fas fa-home" />
+                  <p>หน้าอุปกรณ์</p>
+                </a>
+              </li> : ""}
+          {name.person_type === 2 ?<li className="nav-item has-treeview">
+                <a href="/teacherhome" className="nav-link">
+                  <i className="nav-icon fas fa-home" />
+                  <p>หน้าอุปกรณ์</p>
+                </a>
+              </li> : ""}
+
+          {/* {name.person_type === 1 && 2 ?<li className="nav-item has-treeview">
+                <a href="/index" className="nav-link">
+                  <i className="nav-icon fas fa-home" />
+                  <p>อุปกรณ์ที่เลือก</p>
+                </a>
+              </li> : ""}
+
+              {name.person_type === 1 && 2 ?<li className="nav-item has-treeview">
+                <a href="/index" className="nav-link">
+                  <i className="nav-icon fas fa-home" />
+                  <p>สถานะอุปกรณ์</p>
+                </a>
+              </li> : ""}
+              {name.person_type === 1 && 2 ?<li className="nav-item has-treeview">
+                <a href="/index" className="nav-link">
+                  <i className="nav-icon fas fa-home" />
+                  <p>ประวัติการยืม</p>
+                </a>
+              </li> : ""} */}
+              
+             
 
               <li className="nav-header">EXAMPLES</li>
               <li className="nav-item">

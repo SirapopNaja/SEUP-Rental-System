@@ -75,49 +75,56 @@ public $successStatus = 200;
     { 
         $user = Auth::user(); 
         return response()->json(['user'=>$user], $this->successStatus);
-    } 
+    }
+    public function getUserByID(Request $request,$id){
+        $user = User::find($id);
+        return $user;
+    }
     public function userupdate(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'last_name' => 'required',
-            'phone_number' => 'required',
-            'company' => 'required',
-            'position' => 'required',
+            // 'name' => 'required',
+            // 'email' => 'required',
+            // 'password' => 'required',
+            // 'last_name' => 'required',
+            // 'phone_number' => 'required',
+            // 'company' => 'required',
+            // 'position' => 'required',
             'person_type' => 'required',
-            'name_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'ssn_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'name_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'ssn_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
             
         ]);
 
         $user = User::find($id);
 
-        if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
-        }
-    if ($request->hasfile('name_picture','ssn_picture')) {
-            $image = $request->file('name_picture',);
-            $image2 = $request->file('ssn_picture',);
-            $extension = $image->getClientOriginalExtension();
-            $extension2 = $image2->getClientOriginalExtension();
-            $imageName = time().'1' . '.' . $extension;
-            $imageName2 = time().'2' . '.' . $extension2;
-            $imagePath = $image->storeAs('', $imageName,'public');
-            $imagePath2 = $image2->storeAs('', $imageName2,'public');
+        // if ($validator->fails()) { 
+        //     return response()->json(['error'=>$validator->errors()], 401);            
+        // }
+    // if ($request->hasfile('name_picture','ssn_picture')) {
+            $user->person_type = $request->person_type;
+            $user->save();
+            return $user;
+            // $image = $request->file('name_picture',);
+            // $image2 = $request->file('ssn_picture',);
+            // $extension = $image->getClientOriginalExtension();
+            // $extension2 = $image2->getClientOriginalExtension();
+            // $imageName = time().'1' . '.' . $extension;
+            // $imageName2 = time().'2' . '.' . $extension2;
+            // $imagePath = $image->storeAs('', $imageName,'public');
+            // $imagePath2 = $image2->storeAs('', $imageName2,'public');
 
     
-            $input = $request->all();
-            $input['password'] = bcrypt($input['password']);
-            $input['name_picture'] = $imageName;
-            $input['ssn_picture'] = $imageName2;
-            $user = User::create($input);
+            // $input = $request->all();
+            // $input['password'] = bcrypt($input['password']);
+            // $input['name_picture'] = $imageName;
+            // $input['ssn_picture'] = $imageName2;
+            // $user = User::create($input);
             
-            $user['token'] =  $user->createToken('MyApp')->accessToken;
-            return response()->json(['user'=>$user], $this->successStatus);
-    }
+            // $user['token'] =  $user->createToken('MyApp')->accessToken;
+            // return response()->json(['user'=>$user], $this->successStatus);
+    // }
 }
 
     /**

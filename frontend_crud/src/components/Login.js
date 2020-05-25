@@ -71,7 +71,7 @@ const onSubmit = (e) => {
     .then(res => {
         console.log(res.data.success.token)
         localStorage.setItem('access_token',res.data.success.token);
-        props.history.push('/index')
+        props.history.push('/home')
     })
   
   }

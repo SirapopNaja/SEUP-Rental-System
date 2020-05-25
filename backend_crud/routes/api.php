@@ -26,8 +26,10 @@ Route::resource('product', 'productsController');
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::get('show', 'UserController@show');
+Route::get('/getuserbyid/{id}', 'UserController@getUserByID');
 Route::delete('/destroy/{id}', 'UserController@destroy');
-Route::post('/userupdate/{id}', 'UserController@userupdate');
+Route::put('/userupdate/{id}', 'UserController@userupdate');
+
 Route::group(['middleware' => 'auth:api'], function(){
 });
 

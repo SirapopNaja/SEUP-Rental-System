@@ -12,6 +12,9 @@ import PrepareEquipment from './components/PrepareEquipment';
 import Managemembers from './components/Managemembers';
 import Returndevice from './components/Returndevice';
 import Requestmembers from './components/Requestmembers';
+import home from './components/home';
+import studenthome from './components/studenthome';
+import teacherhome from './components/teacherhome';
 
 
 function App() {
@@ -28,6 +31,9 @@ function App() {
         <Route path="/index" component={Index}/>
         <Route path="/Prepare" component={Prepare}/>
         <Route path="/Request" component={Request}/>
+        <Route path="/home" component={home}/>
+        <Route path="/studenthome" component={studenthome}/>
+        <Route path="/teacherhome" component={teacherhome}/>
         <Route path="/PrepareEquipment" component={PrepareEquipment}/>
         <Route path="/Managemembers" component={Managemembers}/>
         <Route path="/Returndevice" component={Returndevice}/>
