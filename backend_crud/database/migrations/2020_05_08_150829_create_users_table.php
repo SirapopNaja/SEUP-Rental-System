@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('position');
             $table->text('name_picture');
             $table->text('ssn_picture');
-            $table->integer('person_type')->default(0);
+            $table->text('person_type')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

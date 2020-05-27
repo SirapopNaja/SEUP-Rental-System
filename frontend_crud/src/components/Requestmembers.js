@@ -71,7 +71,7 @@ export default function Requestmembers(props) {
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label>องค์กร</label>
-                                        <input class="form-control" type="text" value={data.company} name="company" onChange={handle}></input>
+                                        <div class="form-control" type="text" value={data.company} name="company" onChange={handle}></div>
                                     </div>
                                     <div class="form-group">
                                         <label>ตำแหน่ง</label>
@@ -94,9 +94,9 @@ export default function Requestmembers(props) {
                                         <label>ให้สถานะผู้ใช้ระบบ</label>
                                         <select class="form-control" name="person_type" id="person_type" value={data.person_type} onChange={handle}>
                                             <option value=""></option>
-                                            <option value="1" >นิสิต</option>
-                                            <option value="2">อาจารย์</option>
-                                            <option value="3">แอดมิน</option>
+                                            <option value="student" >นิสิต</option>
+                                            <option value="teacher">อาจารย์</option>
+                                            <option value="admin">แอดมิน</option>
                                         </select>
                                     </div>
                                     

@@ -73,7 +73,7 @@ export default function Managemembers(props) {
     },
     {
       name: "ตำแหน่ง",
-      selector: "position",
+      selector: "person_type",
       sortable: true,
     },
     {
@@ -91,7 +91,9 @@ export default function Managemembers(props) {
       name: "แก้ไข้",
       center: true,
       cell: (row) => (
-        <EditButton onClick={() => handleOnclickEdit(row.id)}>ดูข้อมูล</EditButton>
+        <EditButton onClick={() => handleOnclickEdit(row.id)}>
+          ดูข้อมูล
+        </EditButton>
       ),
     },
     {
@@ -132,11 +134,7 @@ export default function Managemembers(props) {
 
   return (
     <div className="content-wrapper">
-      <DataTable
-        
-        columns={columns}
-        data={data}
-      />
+      <DataTable columns={columns} data={data} />
     </div>
   );
 }
