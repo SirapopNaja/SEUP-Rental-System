@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 import API from "../api";
 import Button from "@material-ui/core/Button";
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
 
 export default function Update(props) {
   const [picture, setPicture] = useState(null);
@@ -113,24 +117,7 @@ export default function Update(props) {
                       onChange={handlePicture}
                     />
                   </div>
-                  {/* <div>
-                                        <label>UploadImage</label>
-                                        <ImageUploading value={data.product_picture} name="product_picture" multiple onChange={onChange} maxNumber={maxNumber}>
-                                            {({ imageList, onImageUpload }) => (
-                                                <div classNameName="upload__image-wrapper">
-                                                    <button onClick={onImageUpload}>Upload images</button>&nbsp;
-                                                    {imageList.map(image => (
-                                                        <div key={image.key} classNameName="image-item">
-                                                            <img src={image.dataURL} alt="" width="100" />
-                                                            <div classNameName="image-item__btn-wrapper">
-                                                                <button onClick={image.onRemove}>Remove</button>
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </ImageUploading>
-                                    </div> */}
+                  
                   <div className="form-group">
                     <label>รายละเอียดอุปกรณ์</label>
                     <textarea

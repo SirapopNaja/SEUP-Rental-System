@@ -40,7 +40,7 @@ const Warpper = styled.div`
 export default function Index(props) {
   const handleOnclickEdit = (id) => {
     console.log(id);
-    props.history.push("/ /" + id);
+    props.history.push("/Basket/" + id);
   };
 
 
@@ -69,14 +69,14 @@ export default function Index(props) {
       sortable: true,
     },
     {
-      name: "จำนวน",
+      name: "รหัสอุปกรณ์",
       selector: "product_number",
       sortable: true,
     },
 
     {
-        name: "จำนวนคงเหลือ",
-        selector: "product_details",
+        name: "สถานะ",
+        selector: "",
         sortable: true,
       },
 

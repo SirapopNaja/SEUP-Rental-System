@@ -1,6 +1,28 @@
 import React, { useState, useEffect } from "react";
 import API from "../api";
+import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+
 export default function Menu(props) {
+
+  
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+    small: {
+      width: theme.spacing(3),
+      height: theme.spacing(3),
+    },
+    large: {
+      width: theme.spacing(7),
+      height: theme.spacing(7),
+    },
+  }));
+
   const [name, setName] = useState([]);
 
   useEffect(() => {
@@ -17,16 +39,17 @@ export default function Menu(props) {
         <div className="sidebar">
           {/* Sidebar user panel (optional) */}
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div className="image">
-              <img
-                src="dist/img/user2-160x160.jpg"
-                className="img-circle elevation-2"
-                alt="User Image"
+            <div className="image" >
+           
+            <img
+                className="img-circle elevation-5 "
+                src={"http://127.0.0.1:8000/storage/" + name.name_picture}  
+                alt={name.id}
               />
-            </div>
 
+            </div>
             <div className="info">
-              <a className="d-block"> {name.name + " " + name.last_name} </a>
+              <a className="d-block">{name.name + " " + name.last_name} </a>
             </div>
           </div>
           {/* Sidebar Menu */}

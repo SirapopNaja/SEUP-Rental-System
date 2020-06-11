@@ -6,14 +6,25 @@ import CardMedia from "@material-ui/core/CardMedia";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+
 
 const useStyles = makeStyles((theme) => ({
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
   },
 }));
 
 export default function Requestmembers(props) {
+
+  
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -79,7 +90,11 @@ export default function Requestmembers(props) {
                 <br></br>
               </div>
               <form onSubmit={onSubmit} role="form">
-                <div class="form-group">
+              <div className={classes.root}>
+      <Grid container spacing={10}>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}> 
+                 <div class="form-group">
                   <label>รูปหน้าตรง</label><br></br>
                   <img
                     src={"http://127.0.0.1:8000/storage/" + data.name_picture}
@@ -87,8 +102,10 @@ export default function Requestmembers(props) {
                     height="200"
                     width="200"
                   />
-                </div>
-
+                </div></Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}> 
                 <div class="form-group">
                   <label>รูปบัตรประชาชน</label><br></br>
                   <img
@@ -98,7 +115,10 @@ export default function Requestmembers(props) {
                     width="200"
                   />
                 </div>
-
+          </Paper>
+        </Grid>
+      </Grid>
+    </div>
                 <div class="box-body">
                   <div class="form-group">
                     <label>องค์กร</label>
