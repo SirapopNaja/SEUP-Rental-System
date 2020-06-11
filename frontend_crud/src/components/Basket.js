@@ -9,7 +9,7 @@ const Button = styled.button`
   font-size: 15px;
   margin-left: 160%;
   color: white;
-  width: 150px;
+  width: 100px;
   height: 40px;
   border: none;
   border-radius: 5px;
@@ -26,9 +26,10 @@ const DeleteButton = styled.button`
 `;
 const EditButton = styled.button`
   background: green;
+  margin-right: 150%;
   color: white;
-  width: 60px;
-  height: 30px;
+  width: 100px;
+  height: 40px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -37,80 +38,51 @@ const Warpper = styled.div`
   width: 100%;
 `;
 
-export default function Managemembers(props) {
+export default function Index(props) {
   const handleOnclickEdit = (id) => {
     console.log(id);
-    props.history.push("/Requestmembers/" + id);
+    props.history.push("//" + id);
   };
-  // const handleOnclickprepare = () => {
-  //   props.history.push("/Requestmembers");
-  // };
+  const handleOnclickprepare = () => {
+    props.history.push("//");
+  };
 
-  const onRemove = (id) => {
-    API.delete(`api/destroy/` + id).then((res) => {
-      console.log(res.data);
-      const myData = data.filter((item) => item.id !== id);
-      setData(myData);
-    });
-  };
+
   const columns = [
     // {
     //   name: "รูป",
     //   selector: "product_picture",
     //   sortable: true,
     // },
-    // {
-    //   name: "รูป",
+    {
+      name: "รูป",
     //   cell: (row) => (
-    //     <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="42" width="42" />
+    //     <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="80" width="80" />
     //   )
 
-    // },
-    {
-      name: "ชื่อ-นามสกุล",
-      selector: "name",
-      sortable: true,
     },
     {
-      name: "ตำแหน่ง",
-      selector: "person_type",
+      name: "อุปกรณ์",
+      selector: " ",
       sortable: true,
     },
+    
     {
-      name: "องค์กร",
-      selector: "company",
-      sortable: true,
-    },
-    {
-      name: "เบอร์โทร",
-      selector: "phone_number",
-      sortable: true,
-    },
+        name: "จำนวน",
+        selector: " ",
+        sortable: true,
+      },
+
+    
 
     {
-      name: "ตรวจสอบ",
-      center: true,
-      cell: (row) => (
-        <EditButton onClick={() => handleOnclickEdit(row.id)}>
-          ดูข้อมูล
-        </EditButton>
-      ),
-    },
-    {
-      name: "ลบ",
-      center: true,
-      cell: (row) => (
-        <DeleteButton
-          onClick={() => {
-            if (window.confirm("Are you sure you want delete this item?"))
-              onRemove(row.id);
-          }}
-        >
-          ลบ
-        </DeleteButton>
-      ),
-    },
-
+        name: "แก้ไข",
+        center: true,
+        cell: (row) => (
+          <DeleteButton onClick={() => handleOnclickEdit(row.id)}>ลบ</DeleteButton>
+        ),
+      },
+   
     // {
     //   name: "Test",
     //   center: true,
@@ -126,7 +98,7 @@ export default function Managemembers(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    API.get(`api/show/`).then((res) => {
+    API.get(`api/product/`).then((res) => {
       console.log(res.data);
       setData(res.data);
     });
@@ -134,7 +106,17 @@ export default function Managemembers(props) {
 
   return (
     <div className="content-wrapper">
-      <DataTable columns={columns} data={data} />
+      <DataTable
+         
+        columns={columns}
+        data={data}
+        title={
+            <Button onClick={() => handleOnclickprepare()}>เลือกเพิ่ม</Button>
+          }
+      />
+        
+        <EditButton onClick={() => handleOnclickprepare()}>ยืนยัน</EditButton>
     </div>
+    
   );
 }

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import DataTable from "react-data-table-component";
 import "./App.css";
 
+
 const Button = styled.button`
   background: #339fff;
   font-size: 15px;
@@ -67,9 +68,10 @@ export default function Index(props) {
     //   )
 
     // },
+    
     {
-      name: "ชื่ออุปกรณ์",
-      selector: "product_name",
+      name: "ID",
+      selector: "id",
       sortable: true,
     },
     {
@@ -78,7 +80,7 @@ export default function Index(props) {
       sortable: true,
     },
     {
-      name: "จำนวน",
+      name: "รหัสอุปกรณ์",
       selector: "product_number",
       sortable: true,
     },

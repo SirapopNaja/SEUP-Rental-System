@@ -40,22 +40,22 @@ public $successStatus = 200;
             'position' => 'required',  
             'c_password' => 'required|same:password',
             'name_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'ssn_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'ssn_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     if ($validator->fails()) { 
             return response()->json(['error'=>$validator->errors()], 401);            
         }
-    if ($request->hasfile('name_picture','ssn_picture')) {
-            $image = $request->file('name_picture',);
-            $image2 = $request->file('ssn_picture',);
-            $extension = $image->getClientOriginalExtension();
-            $extension2 = $image2->getClientOriginalExtension();
+    if ($request->hasfile('name_picture')) {
+            $image = $request->file('name_picture',);           
+            $extension = $image->getClientOriginalExtension();            
             $imageName = time().'1' . '.' . $extension;
-            $imageName2 = time().'2' . '.' . $extension2;
             $imagePath = $image->storeAs('', $imageName,'public');
+           
+            $image2 = $request->file('ssn_picture');
+            $extension2 = $image2->getClientOriginalExtension();
+            $imageName2 = time().'2' . '.' . $extension2;
             $imagePath2 = $image2->storeAs('', $imageName2,'public');
 
-    
             $input = $request->all();
             $input['password'] = bcrypt($input['password']);
             $input['name_picture'] = $imageName;
