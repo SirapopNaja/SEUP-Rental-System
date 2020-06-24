@@ -4,7 +4,6 @@ import styled from "styled-components";
 import DataTable from "react-data-table-component";
 import "./App.css";
 
-
 const Button = styled.button`
   background: #339fff;
   font-size: 15px;
@@ -38,52 +37,38 @@ const Warpper = styled.div`
   width: 100%;
 `;
 
-export default function Index(props) {
-  const handleOnclickEdit = (id) => {
-    console.log(id);
-    props.history.push("/update/" + id);
-  };
-  const handleOnclickprepare = () => {
-    props.history.push("/prepare");
-  };
+export default function Devivestatus(props) {
 
-  const onRemove = (id) => {
-    API.delete(`api/product/` + id).then((res) => {
-      console.log(res.data);
-      const myData = data.filter((item) => item.id !== id);
-      setData(myData);
-    });
-  };
+  
 
+
+  function statusTotext(status) {
+    if (status.status_id == 1){
+      return "กำลังดำเนินการ"
+    }
+    if (status.status_id == 2){
+      return "อุปกรณ์พร้อมรับ"
+    }
+    else{
+      return "อุปกรณ์มีปัญหา"
+    }
+  };
   const columns = [
     // {
     //   name: "รูป",
     //   selector: "product_picture",
     //   sortable: true,
     // },
-    // {
-    //   name: "รูป",
-    //   cell: (row) => (
-    //     <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="42" width="42" />
-    //   )
-
-    // },
-    
     {
-      name: "ID",
-      selector: "id",
-      sortable: true,
+      name: "รูป",
+      cell: (row) => (
+        <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="80" width="80" />
+      )
+
     },
-
     {
-      name: "ชื่อ",
+      name: "อุปกรณ์",
       selector: "product_name",
-      sortable: true,
-    },
-
-    {
-      name: "ประเภท",
-      selector: "product_type",
       sortable: true,
     },
     {
@@ -92,28 +77,14 @@ export default function Index(props) {
       sortable: true,
     },
 
+    {
+        name: "สถานะ",
+        selector: "status_id",
+        sortable: true,
+      },
 
-    {
-      name: "แก้ไข",
-      center: true,
-      cell: (row) => (
-        <EditButton onClick={() => handleOnclickEdit(row.id)}>แก้ไข</EditButton>
-      ),
-    },
-    {
-      name: "ลบ",
-      center: true,
-      cell: (row) => (
-        <DeleteButton
-          onClick={() => {
-            if (window.confirm("Are you sure you want delete this item?"))
-              onRemove(row.id);
-          }}
-        >
-          ลบ
-        </DeleteButton>
-      ),
-    },
+   
+ 
     // {
     //   name: "Test",
     //   center: true,
@@ -129,18 +100,20 @@ export default function Index(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    API.get(`api/product/`).then((res) => {
+    API.get(`api/lendproduct/`).then((res) => {
       console.log(res.data);
+      for(let i of res.data){
+        i.status_id = statusTotext(i);
+      }
       setData(res.data);
     });
   }, []);
+ 
 
   return (
     <div className="content-wrapper">
       <DataTable
-        title={
-          <Button onClick={() => handleOnclickprepare()}>เพิ่มอุปกรณ์</Button>
-        }
+   
         columns={columns}
         data={data}
       />

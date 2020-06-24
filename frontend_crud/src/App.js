@@ -16,6 +16,11 @@ import userhome from './components/userhome';
 import studenthome from './components/studenthome';
 import teacherhome from './components/teacherhome';
 import Basket from './components/Basket';
+import BasketPD from './components/BasketPD';
+
+import Devicestatus from './components/Devicestatus';
+import Detaildevice from './components/Detaildevice';
+import UpdatePrepareEquipment from './components/UpdatePrepareEquipment';
 
 function App() {
   return (
@@ -29,9 +34,13 @@ function App() {
       <Route exact path="/" component={Login}/>
         <Route path="/Register" component={Register}/>
         <Route path="/index" component={Index}/>
+        <Route path="/BasketPD" component={Basket}/>
         <Route path="/Prepare" component={Prepare}/>
-        <Route path="/Request" component={Request}/>
-        <Route path="/Basket" component={Basket}/>
+        <Route path="/Request/:id" component={Request}/>
+        <Route path="/Basket/:id" component={Basket}/>
+        <Route path="/Devicestatus" component={Devicestatus}/>
+        <Route path="/Detaildevice" component={Detaildevice}/>
+        <Route path="/UpdatePrepareEquipment" component={UpdatePrepareEquipment}/>
         <Route path="/studenthome" component={studenthome}/>
         <Route path="/userhome" component={userhome}/>
         <Route path="/teacherhome" component={teacherhome}/>

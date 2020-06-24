@@ -40,6 +40,7 @@ export default function Prepare(props) {
             .then(res => {
                 console.log(res.data);
                 alert("success")
+                props.history.push("/index");
             });
     }
     const onSubmitHome = (e) => {
@@ -71,7 +72,7 @@ export default function Prepare(props) {
                                     </div>
                                     <div class="form-group">
                                         <label>รหัสอุปกรณ์</label>
-                                        <input class="form-control" type="number" value={data.product_number} name="product_number" onChange={handle}></input>
+                                        <input class="form-control" type="text" value={data.product_number} name="product_number" onChange={handle}></input>
                                     </div>
                                     <div>
                                         รูปภาพอุปกรณ์

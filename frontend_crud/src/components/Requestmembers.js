@@ -204,7 +204,7 @@ export default function Requestmembers(props) {
                 <div class="form-row">
                   <div class="col">
                     <Button type="submit" variant="contained" color="primary">
-                      submit
+                      ยืนยัน
                     </Button>
                   </div>
                 </div>

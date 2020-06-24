@@ -37,14 +37,23 @@ const Warpper = styled.div`
   width: 100%;
 `;
 
-export default function Index(props) {
+export default function Studenthome(props) {
+
   const handleOnclickEdit = (id) => {
     console.log(id);
     props.history.push("/Basket/" + id);
   };
+   
 
 
-
+  function statusTotext(status) {
+    if (status.status_id == 1){
+      return "ว่าง"
+    }
+    else{
+      return "ไม่ว่าง"
+    }
+  };
   const columns = [
     // {
     //   name: "รูป",
@@ -76,7 +85,7 @@ export default function Index(props) {
 
     {
         name: "สถานะ",
-        selector: "",
+        selector: "status_id",
         sortable: true,
       },
 
@@ -105,9 +114,13 @@ export default function Index(props) {
   useEffect(() => {
     API.get(`api/product/`).then((res) => {
       console.log(res.data);
+      for(let i of res.data){
+        i.status_id = statusTotext(i);
+      }
       setData(res.data);
     });
   }, []);
+ 
 
   return (
     <div className="content-wrapper">

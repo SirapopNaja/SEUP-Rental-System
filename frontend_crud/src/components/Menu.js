@@ -64,7 +64,7 @@ export default function Menu(props) {
          with font-awesome or any other icon font library */}
 
               {/* addmin */}
-              {name.person_type === "เจ้าหน้าที" ? (
+              {name.person_type === "เจ้าหน้าที่" ? (
                 <li className="nav-item has-treeview">
                   <a href="/index" className="nav-link">
                     <i className="nav-icon fas fa-home" />
@@ -75,7 +75,7 @@ export default function Menu(props) {
                 ""
               )}
 
-              {name.person_type === "เจ้าหน้าที" ? (
+              {/* {name.person_type === "เจ้าหน้าที" ? (
                 <li className="nav-item has-treeview">
                   <a href="/Request" className="nav-link">
                     <i className="nav-icon fas fa-check-square" />
@@ -84,20 +84,20 @@ export default function Menu(props) {
                 </li>
               ) : (
                 ""
-              )}
+              )} */}
 
-              {name.person_type === "เจ้าหน้าที" ? (
+              {name.person_type === "เจ้าหน้าที่" ? (
                 <li className="nav-item has-treeview">
                   <a href="/PrepareEquipment" className="nav-link">
                     <i className="nav-icon fas fa-truck" />
-                    <p>จัดเตรียมอุปกรณ์</p>
+                    <p>คำร้องขอยืมอุปกรณ์</p>
                   </a>
                 </li>
               ) : (
                 ""
               )}
 
-              {name.person_type === "เจ้าหน้าที" ? (
+              {name.person_type === "เจ้าหน้าที่" ? (
                 <li className="nav-item has-treeview">
                   <a href="/Managemembers" className="nav-link">
                     <i className="nav-icon fas fa-user-plus" />
@@ -108,7 +108,7 @@ export default function Menu(props) {
                 ""
               )}
 
-              {name.person_type === "เจ้าหน้าที" ? (
+              {name.person_type === "เจ้าหน้าที่" ? (
                 <li className="nav-item has-treeview">
                   <a href="/Returndevice" className="nav-link">
                     <i className="nav-icon fas fa-file-powerpoint" />
@@ -130,6 +130,29 @@ export default function Menu(props) {
               ) : (
                 ""
               )}
+
+                {/* {/* {name.person_type === "ผู้ใช้ทั่วไป" ? (
+                <li className="nav-item has-treeview">
+                  <a href="/BasketPD" className="nav-link">
+                    <i className="nav-icon fas fa-check-square" />
+                    <p>ตะกร้าอุปกรณ์</p>
+                  </a>
+                </li>
+              ) : (
+                "" */}
+              
+
+                {name.person_type === "ผู้ใช้ทั่วไป" ? (
+                <li className="nav-item has-treeview">
+                  <a href="/Devicestatus" className="nav-link">
+                    <i className="nav-icon fas fa-truck" />
+                    <p>สถานะอุปกรณ์</p>
+                  </a>
+                </li>
+              ) : (
+                ""
+              )}
+                 
 
               
 

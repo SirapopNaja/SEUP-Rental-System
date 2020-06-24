@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 // อุปกรณ์
 Route::resource('product', 'productsController');
+Route::resource('lendproduct', 'LendproductController');
 
 //login and register
 Route::post('login', 'UserController@login');

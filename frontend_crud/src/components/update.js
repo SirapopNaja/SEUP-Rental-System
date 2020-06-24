@@ -103,7 +103,7 @@ export default function Update(props) {
                     <label>รหัสอุปกรณ์</label>
                     <input
                       className="form-control"
-                      type="number"
+                      type="text"
                       value={data.product_number}
                       name="product_number"
                       onChange={handle}
