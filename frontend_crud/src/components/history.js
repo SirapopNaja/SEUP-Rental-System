@@ -38,14 +38,13 @@ const Warpper = styled.div`
 `;
 
 
-export default function Returndevice(props) {
+export default function History(props) {
 
     const handleOnclickEdit = (id) => {
         console.log(id);
-        props.history.push("/Retureproduct/" + id);
+        props.history.push("/Basket/" + id);
       };
-
-     
+       
     
     
       function statusTotext(send) {
@@ -57,6 +56,17 @@ export default function Returndevice(props) {
           }
         else{
           return "ยังไม่คืน"
+        }
+      };
+      function statusTotext2(status) {
+        if (status.status_p == 1){
+          return "สภาพปกติ"
+        }
+        if (status.status_p == 2){
+            return "ชำรุด"
+          }
+        else{
+          return "รอตรวจสอบ"
         }
       };
       const columns = [
@@ -94,40 +104,42 @@ export default function Returndevice(props) {
             sortable: true,
           },
       
-        //   {
-        //       name: "สถานะ",
-        //       selector: "send_back",
-        //       sortable: true,
-        //     },
+          {
+              name: "สถานะ",
+              selector: "send_back",
+              sortable: true,
+            },
 
-        //     {
-        //         name: "สภาพอุปกรณ์",
-        //         selector: "status_p",
-        //         sortable: true,
-        //       },
+            {
+                name: "สภาพอุปกรณ์",
+                selector: "status_p",
+                sortable: true,
+              },
 
-        {
-          name: "คืน",
-          center: true,
-          cell: (row) => (
-            <EditButton  onClick={() => handleOnclickEdit(row.id)}  >คืน</EditButton>
-          ),
-        },
+        // {
+        //   name: "คืน",
+        //   center: true,
+        //   cell: (row) => (
+        //     <EditButton onClick={() => handleOnclickEdit(row.id)}>คืน</EditButton>
+        //   ),
+        // },
 
     ];
         const [data, setData] = useState([]);
 
         useEffect(() => {
-          API.get(`api/lendproduct/`).then((res) => {
+          API.get(`api/send/`).then((res) => {
             console.log(res.data);
             for(let i of res.data){
               i.send_back = statusTotext(i);
             }
+            for(let j of res.data){
+                j.status_p = statusTotext2(j);
+              }
             setData(res.data);
           });
         }, []);
-
-   
+       
       
 
     return (

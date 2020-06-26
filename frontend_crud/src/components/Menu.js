@@ -67,7 +67,7 @@ export default function Menu(props) {
               {name.person_type === "เจ้าหน้าที่" ? (
                 <li className="nav-item has-treeview">
                   <a href="/index" className="nav-link">
-                    <i className="nav-icon fas fa-home" />
+                    <i className="nav-icon fas fa-ambulance" />
                     <p>อุปกรณ์</p>
                   </a>
                 </li>
@@ -89,7 +89,7 @@ export default function Menu(props) {
               {name.person_type === "เจ้าหน้าที่" ? (
                 <li className="nav-item has-treeview">
                   <a href="/PrepareEquipment" className="nav-link">
-                    <i className="nav-icon fas fa-truck" />
+                    <i className="nav-icon fas fa-people-carry" />
                     <p>คำร้องขอยืมอุปกรณ์</p>
                   </a>
                 </li>
@@ -100,7 +100,7 @@ export default function Menu(props) {
               {name.person_type === "เจ้าหน้าที่" ? (
                 <li className="nav-item has-treeview">
                   <a href="/Managemembers" className="nav-link">
-                    <i className="nav-icon fas fa-user-plus" />
+                    <i className="nav-icon fas 	far fa-address-book" />
                     <p>จัดการสมาชิก</p>
                   </a>
                 </li>
@@ -111,8 +111,19 @@ export default function Menu(props) {
               {name.person_type === "เจ้าหน้าที่" ? (
                 <li className="nav-item has-treeview">
                   <a href="/Returndevice" className="nav-link">
-                    <i className="nav-icon fas fa-file-powerpoint" />
+                    <i className="nav-icon fas fa-file-export" />
                     <p>คืนอุปกรณ์</p>
+                  </a>
+                </li>
+              ) : (
+                ""
+              )}
+
+                {name.person_type === "เจ้าหน้าที่" ? (
+                <li className="nav-item has-treeview">
+                  <a href="/history" className="nav-link">
+                    <i className="nav-icon fas fa-file-powerpoint" />
+                    <p>ประวัติการยืม</p>
                   </a>
                 </li>
               ) : (
@@ -123,7 +134,7 @@ export default function Menu(props) {
               {name.person_type === "ผู้ใช้ทั่วไป" ? (
                 <li className="nav-item has-treeview">
                   <a href="/studenthome" className="nav-link">
-                    <i className="nav-icon fas fa-home" />
+                    <i className="nav-icon 	fas fa-store-alt" />
                     <p>หน้าอุปกรณ์</p>
                   </a>
                 </li>
@@ -176,7 +187,7 @@ export default function Menu(props) {
                 </a>
               </li> : ""} */}
 
-              <li className="nav-header">EXAMPLES</li>
+              <li className="nav-header">----------------------------------</li>
               {/* <li className="nav-item">
                 <a href="/" className="nav-link">
                   <i className="nav-icon fas fa-calendar-alt" />
@@ -188,7 +199,7 @@ export default function Menu(props) {
               </li> */}
               <li className="nav-item">
                 <a href="/" className="nav-link">
-                  <i className="nav-icon far fa-image" />
+                  <i className="nav-icon fas fa-share-square" />
                   <p>ออกจากระบบ</p>
                 </a>
               </li>

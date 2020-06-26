@@ -71,9 +71,22 @@ export default function Devivestatus(props) {
       selector: "product_name",
       sortable: true,
     },
+
     {
       name: "รหัสอุปกรณ์",
       selector: "product_number",
+      sortable: true,
+    },
+
+    {
+      name: "เวลายืม",
+      selector: "created_at",
+      sortable: true,
+    },
+
+    {
+      name: "ระยะเวลายืม",
+      selector: "lend_day",
       sortable: true,
     },
 

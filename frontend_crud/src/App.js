@@ -20,6 +20,8 @@ import BasketPD from './components/BasketPD';
 
 import Devicestatus from './components/Devicestatus';
 import Detaildevice from './components/Detaildevice';
+import history from './components/history';
+import Retureproduct from './components/Retureproduct';
 import UpdatePrepareEquipment from './components/UpdatePrepareEquipment';
 
 function App() {
@@ -47,6 +49,8 @@ function App() {
         <Route path="/PrepareEquipment" component={PrepareEquipment}/>
         <Route path="/Managemembers" component={Managemembers}/>
         <Route path="/Returndevice" component={Returndevice}/>
+        <Route path="/Retureproduct/:id" component={Retureproduct}/>
+        <Route path="/history" component={history}/>
         <Route path="/Requestmembers/:id" component={Requestmembers}/>
         <Route path="/update/:id" component={Update}/>
         </Router>

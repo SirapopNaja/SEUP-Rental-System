@@ -30,36 +30,20 @@ export default function Basket(props) {
     product_details: "",
     status_id: "",
     lend_day: "",
+    name: "",
+    last_name: "",
   });
 
-  const [name, setName] = useState([]);
   const [basket, setBasket] = useState([]);
-  const [status , setStatus] = useState(2);
+  
 
-  const myData = {
-    product_name : data.product_name,
-    product_type :  data.product_type,
-    product_number : data.product_number,
-    product_picture : data.product_picture, 
-    product_details : data.product_details,
-    lend_day : data.lend_day,
-    name : name.name,
-    last_name : name.last_name ,
-    status_id : status
-}
     
-  useEffect(() => {
-    API.post(`api/details/`).then((res) => {
-      console.log("test",res.data.user.name);
-      console.log("test2",res.data.user.last_name);
-      setName(res.data.user);
-    });
-  }, []);
+ 
 
   useEffect(() => {
     const id = props.match.params.id;
-    API.get(`api/product/` + id).then((res) => {
-      console.log("product",res.data);
+    API.get(`api/lendproduct/` + id).then((res) => {
+      console.log(res.data);
       setData(res.data);
     });
   }, [props]);
@@ -67,22 +51,13 @@ export default function Basket(props) {
   
   
   const onSubmit = (e) => {
-    const id = props.match.params.id;
-    API.post(`api/lendproduct/`,myData ,)
-    .then ((res) => {
-      console.log("lend",res.data)
-      setBasket(res.data)
-
-      API.put(`api/product/`+ id, myData)
-      .then ((res) => {
-        console.log("put",res.data)
-      })
-  
-     alert("success")
-     props.history.push("/studenthome");
-  })
-
-};
+    API.post(`api/send/`,data ,).then((res) => {
+      console.log(res.data);
+      setBasket(res.data);
+      alert("success")
+      props.history.push("/studenthome");
+    });
+  };
 
   
   const handle = (e) => {
@@ -147,26 +122,34 @@ export default function Basket(props) {
 
                       </div>
                       <div class="form-group">
-                    <label>ระยะเวลายืม</label>
+                    <label>สถานะการคืน</label>
                     <select
                       class="form-control"
-                      name="lend_day"
-                      id="lend_day"
-                      value={data.lend_day}
+                      name="send_back"
+                      id="send_back"
+                      value={data.send_back}
                       onChange={handle}
                     >
                       <option value=""></option>
-                      <option value="1">1 วัน</option>
-                      <option value="2">2 วัน</option>
-                      <option value="3">3 วัน</option>
-                      <option value="4">4 วัน</option>
-                      <option value="5">5 วัน</option>
-                      <option value="6">6 วัน</option>
-                      <option value="7">7 วัน</option>
+                      <option value="1">คืนตามกำหนด</option>
+                      <option value="2">เกินกำหนดเวลา</option>
                     </select>
                   </div>
                   
-                   
+                  <div class="form-group">
+                    <label>สภาพอุปกรณ์</label>
+                    <select
+                      class="form-control"
+                      name="status_p"
+                      id="status_p"
+                      value={data.status_p}
+                      onChange={handle}
+                    >
+                      <option value=""></option>
+                      <option value="1">สภาพปกติ</option>
+                      <option value="2">ชำรุด</option>
+                    </select>
+                  </div>
                   
                   
                    
