@@ -61,19 +61,19 @@ export default function Index(props) {
     //   selector: "product_picture",
     //   sortable: true,
     // },
-    // {
-    //   name: "รูป",
-    //   cell: (row) => (
-    //     <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="42" width="42" />
-    //   )
-
-    // },
-    
     {
-      name: "ID",
-      selector: "id",
-      sortable: true,
+      name: "รูป",
+      cell: (row) => (
+        <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="42" width="42" />
+      )
+
     },
+    
+    // {
+    //   name: "ID",
+    //   selector: "id",
+    //   sortable: true,
+    // },
 
     {
       name: "ชื่อ",

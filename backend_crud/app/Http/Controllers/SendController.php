@@ -44,9 +44,10 @@ class SendController extends Controller
         $product->product_details = $request->input('product_details');
         $product->product_picture = $request->input('product_picture');
         $product->lend_day = $request->input('lend_day');
+        $product->status_p = $request->input('status_p');
         $product->send_back = $request->input('send_back');
         $product->status_id = $request->input('status_id');
-        $product->status_p = $request->input('status_p');
+
 
         $product->save();
         return $product;

@@ -3,6 +3,7 @@ import Index from './components/index';
 import Request from './components/Request';
 import Prepare from './components/Prepare';
 import Update from './components/update';
+
 import Login from './components/Login'
 import Register from './components/Register';
 import {  BrowserRouter as Router,  Route, } from "react-router-dom";
@@ -23,6 +24,8 @@ import Detaildevice from './components/Detaildevice';
 import history from './components/history';
 import Retureproduct from './components/Retureproduct';
 import UpdatePrepareEquipment from './components/UpdatePrepareEquipment';
+import updatapicture from './components/updatapicture';
+
 
 function App() {
   return (
@@ -53,6 +56,7 @@ function App() {
         <Route path="/history" component={history}/>
         <Route path="/Requestmembers/:id" component={Requestmembers}/>
         <Route path="/update/:id" component={Update}/>
+        <Route path="/updatapicture/:id" component={updatapicture}/>
         </Router>
        
       

@@ -7,7 +7,9 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 
-export default function Update(props) {
+export default function Updatapicture(props) {
+
+    
   const [picture, setPicture] = useState(null);
   const [data, setData] = useState({
     product_name: "",
@@ -27,24 +29,13 @@ export default function Update(props) {
     });
   }, [props]);
 
-  const handle = (e) => {
-    const newData = { ...data };
-    newData[e.target.name] = e.target.value;
-    setData(newData);
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
     var formData = new FormData();
     formData.append("product_picture", picture);
-    formData.append("product_name", data.product_name);
-    formData.append("product_type", data.product_type);
-    formData.append("product_number", data.product_number);
-    formData.append("product_details", data.product_details);
-    formData.append("status_id", data.status_id);
     formData.append("_method", "put");
     const id = props.match.params.id;
-    API.post(`api/product/` + id, formData).then((res) => {
+    API.post(`api/updatapicture/` + id, formData).then((res) => {
       console.log(res.data);
       props.history.push("/index");
     });
@@ -82,23 +73,8 @@ export default function Update(props) {
                       type="text"
                       value={data.product_name}
                       name="product_name"
-                      onChange={handle}
+                      
                     ></input>
-                  </div>
-                  <div className="form-group">
-                    <label>หมวดหมู่อุปกรณ์</label>
-                    <select
-                      className="form-control"
-                      name="product_type"
-                      id="product_type"
-                      value={data.product_type}
-                      onChange={handle}
-                    >
-                      <option value=""></option>
-                      <option value="อุปกรณ์ทำสื่อ">อุปกรณ์ทำสื่อ</option>
-                      <option value="กลุ่มเครื่องมือ">กลุ่มเครื่องมือ</option>
-                      <option value="อุปกรณ์อื่นๆ">อุปกร์ทั่วไป</option>
-                    </select>
                   </div>
                   <div className="form-group">
                     <label>รหัสอุปกรณ์</label>
@@ -107,28 +83,18 @@ export default function Update(props) {
                       type="text"
                       value={data.product_number}
                       name="product_number"
-                      onChange={handle}
                     ></input>
                     </div>
-                  {/* <div>
+                  <div>
                     รูปภาพอุปกรณ์
                     <input
                       type="file"
                       name="product_picture"
                       onChange={handlePicture}
                     />
-                  </div> */}
-                  
-                  <div className="form-group">
-                    <label>รายละเอียดอุปกรณ์</label>
-                    <textarea
-                      className="form-control"
-                      type="text"
-                      value={data.product_details}
-                      name="product_details"
-                      onChange={handle}
-                    ></textarea>
                   </div>
+                  
+               
                 </div>
                 <div className="form-row">
                   <div className="col">

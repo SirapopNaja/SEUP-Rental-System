@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Basket(props) {
+export default function Returnproduct(props) {
 
  
 
@@ -30,16 +30,31 @@ export default function Basket(props) {
     product_details: "",
     status_id: "",
     lend_day: "",
+    send_back: "",
+    status_p: "",
     name: "",
     last_name: "",
   });
 
   const [basket, setBasket] = useState([]);
-  
+  const [status , setStatus] = useState(1);
 
-    
+
+  const myData = {
+    product_name : data.product_name,
+    product_type :  data.product_type,
+    product_number : data.product_number,
+    product_picture : data.product_picture, 
+    product_details : data.product_details,
+    lend_day : data.lend_day,
+    name : data.name,
+    last_name : data.last_name,
+    send_back : data.send_back,
+    status_p : data.status_p,
+    status_id : status
+}
+
  
-
   useEffect(() => {
     const id = props.match.params.id;
     API.get(`api/lendproduct/` + id).then((res) => {
@@ -48,15 +63,30 @@ export default function Basket(props) {
     });
   }, [props]);
 
+
   
   
   const onSubmit = (e) => {
-    API.post(`api/send/`,data ,).then((res) => {
-      console.log(res.data);
-      setBasket(res.data);
-      alert("success")
-      props.history.push("/studenthome");
-    });
+    const id = props.match.params.id;
+    API.post(`api/send/`,data ,)
+      .then((res) => {
+      console.log("send",res.data)
+      setBasket(res.data)
+     
+      API.put(`api/product/`+ data.product_id ,myData)
+      .then ((res) => {
+        console.log("put",res.data)
+
+        API.delete(`api/lendproduct/` + id).then((res) => {
+          console.log(res.data);
+          setData(myData)
+        })
+        alert("success")
+        props.history.push("/history");
+      })   
+    
+    })
+
   };
 
   

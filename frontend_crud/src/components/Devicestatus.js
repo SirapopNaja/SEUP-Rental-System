@@ -53,7 +53,32 @@ export default function Devivestatus(props) {
       return "อุปกรณ์มีปัญหา"
     }
   };
-  const columns = [
+ 
+
+  const [name, setName] = useState([]);
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    API.post(`api/details/`).then((res) => {
+      console.log("device", res.data.user);
+      setName(res.data.user);
+    });
+  }, []);
+
+
+  useEffect(() => {
+    API.get(`api/lendproduct/`).then((res) => {
+      console.log("lend",res.data);
+      for(let i of res.data){
+        i.status_id = statusTotext(i);
+      }
+      setData(res.data);
+    });
+  }, []);
+
+  
+  const columns = [ 
     // {
     //   name: "รูป",
     //   selector: "product_picture",
@@ -110,26 +135,23 @@ export default function Devivestatus(props) {
     //   ),
     // },
   ];
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    API.get(`api/lendproduct/`).then((res) => {
-      console.log(res.data);
-      for(let i of res.data){
-        i.status_id = statusTotext(i);
-      }
-      setData(res.data);
-    });
-  }, []);
+ 
+ 
  
 
   return (
+
+    
     <div className="content-wrapper">
-      <DataTable
-   
-        columns={columns}
-        data={data}
-      />
+     
+       
+       <DataTable
+     
+       columns={columns}
+       data={data}
+         />
+          
     </div>
   );
 }

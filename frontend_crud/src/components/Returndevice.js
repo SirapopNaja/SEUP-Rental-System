@@ -84,7 +84,8 @@ export default function Returndevice(props) {
       
           {
             name: "เวลาที่ทำการขอยืม",
-            selector: "created_at",
+
+            selector: ("created_at"),
             sortable: true,
           },
       

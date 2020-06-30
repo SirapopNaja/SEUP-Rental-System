@@ -42,8 +42,11 @@ class LendproductController extends Controller
             $product->product_type = $request->input('product_type');
             $product->product_number = $request->input('product_number');
             $product->product_details = $request->input('product_details');
+            $product->product_id = $request->input('product_id');
             $product->product_picture = $request->input('product_picture');
             $product->lend_day = $request->input('lend_day');
+            $product->status_id = $request->input('status_id');
+
 
             $product->save();
             return $product;

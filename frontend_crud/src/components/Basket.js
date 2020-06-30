@@ -30,11 +30,13 @@ export default function Basket(props) {
     product_details: "",
     status_id: "",
     lend_day: "",
+   
   });
 
   const [name, setName] = useState([]);
   const [basket, setBasket] = useState([]);
   const [status , setStatus] = useState(2);
+  const [productid , setProductid] = useState([]);
 
   const myData = {
     product_name : data.product_name,
@@ -45,9 +47,12 @@ export default function Basket(props) {
     lend_day : data.lend_day,
     name : name.name,
     last_name : name.last_name ,
-    status_id : status
+    status_id : status ,
+    product_id : productid 
 }
     
+console.log('mydata', myData)
+
   useEffect(() => {
     API.post(`api/details/`).then((res) => {
       console.log("test",res.data.user.name);
@@ -59,12 +64,13 @@ export default function Basket(props) {
   useEffect(() => {
     const id = props.match.params.id;
     API.get(`api/product/` + id).then((res) => {
-      console.log("product",res.data);
+      console.log("product",res.data.id);
       setData(res.data);
+      setProductid(res.data.id);
     });
   }, [props]);
 
-  
+
   
   const onSubmit = (e) => {
     const id = props.match.params.id;
@@ -79,7 +85,7 @@ export default function Basket(props) {
       })
   
      alert("success")
-     props.history.push("/studenthome");
+     props.history.push("/Devicestatus");
   })
 
 };

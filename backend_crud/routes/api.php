@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 // อุปกรณ์
 Route::resource('product', 'productsController');
+Route::put('updatepicture/{id}', 'productsController@updatepicture');
 Route::resource('lendproduct', 'LendproductController');
 Route::resource('send', 'SendController');
 

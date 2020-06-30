@@ -22,6 +22,7 @@ class CreateLendproductTable extends Migration
             $table->string('product_number');
             $table->text('product_picture');
             $table->string('product_details');
+            $table->integer('product_id');
             $table->integer('status_id');
             $table->integer('lend_day');
             $table->timestamps();
