@@ -166,8 +166,8 @@ export default function Request(props) {
                         onChange={handle}
                       >
                         <option value=""></option>
-                        <option value="1">กำลังดำเนินการ</option>
-                        <option value="2">อุปกรณ์พร้อมรับ</option>
+                        <option value="2">กำลังดำเนินการ</option>
+                        <option value="1">อุปกรณ์พร้อมรับ</option>
                         <option value="3">รับอุปกรณ์แล้ว</option>
                         <option value="4">อุปกรณ์มีปัญหา</option>
                       </select>

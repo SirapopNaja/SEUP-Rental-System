@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lendproduct;
+
 class LendproductController extends Controller
 {
     /**
@@ -59,10 +60,15 @@ class LendproductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name)
     {
-        return Lendproduct::find($id);
+        return Lendproduct::where('name', $name)
+        ->get();
+
     }
+
+    
+
 
     /**
      * Show the form for editing the specified resource.

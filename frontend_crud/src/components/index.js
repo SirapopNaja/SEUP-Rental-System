@@ -16,6 +16,17 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
 `;
+
+const UPButton = styled.button`
+background: #339fff;
+color: white;
+width: 60px;
+height: 30px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+`;
+
 const DeleteButton = styled.button`
   background: red;
   color: white;
@@ -43,6 +54,12 @@ export default function Index(props) {
     console.log(id);
     props.history.push("/update/" + id);
   };
+
+  const handleOnclickEditpicture = (id) => {
+    console.log(id);
+    props.history.push("/updatapicture/" + id);
+  };
+
   const handleOnclickprepare = () => {
     props.history.push("/prepare");
   };
@@ -100,6 +117,15 @@ export default function Index(props) {
         <EditButton onClick={() => handleOnclickEdit(row.id)}>แก้ไข</EditButton>
       ),
     },
+
+    {
+      name: "แก้ไขรูป",
+      center: true,
+      cell: (row) => (
+        <UPButton onClick={() => handleOnclickEditpicture(row.id)}>แก้ไขรูป</UPButton>
+      ),
+    },
+
     {
       name: "ลบ",
       center: true,

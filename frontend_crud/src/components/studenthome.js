@@ -33,6 +33,17 @@ const EditButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
 `;
+
+const EditButton2 = styled.button`
+  background: red;
+  color: white;
+  width: 60px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
 const Warpper = styled.div`
   width: 100%;
 `;
@@ -93,7 +104,8 @@ export default function Studenthome(props) {
       name: "ขอยืม",
       center: true,
       cell: (row) => (
-        <EditButton onClick={() => handleOnclickEdit(row.id)}>ยืม</EditButton>
+      <div> {  row.status_id === "ว่าง" ? <EditButton onClick={() => handleOnclickEdit(row.id)}>ยืม</EditButton> :   
+            <EditButton2 >ยืมไม่ได้</EditButton2> }</div>
       ),
     },
  

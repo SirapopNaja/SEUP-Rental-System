@@ -35,7 +35,7 @@ export default function Updatapicture(props) {
     formData.append("product_picture", picture);
     formData.append("_method", "put");
     const id = props.match.params.id;
-    API.post(`api/updatapicture/` + id, formData).then((res) => {
+    API.post(`api/updatepicture/` + id, formData).then((res) => {
       console.log(res.data);
       props.history.push("/index");
     });

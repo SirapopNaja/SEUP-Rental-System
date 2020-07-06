@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../api";
 import styled from "styled-components";
+import { Userapi } from "../components/service/userapi";
 import DataTable from "react-data-table-component";
 import "./App.css";
 
@@ -38,47 +39,44 @@ const Warpper = styled.div`
 `;
 
 export default function Devivestatus(props) {
-
-  
-
-
   function statusTotext(status) {
-    if (status.status_id == 1){
-      return "กำลังดำเนินการ"
+    if (status.status_id == 1) {
+      return "อุปกรณ์พร้อมรับ";
     }
-    if (status.status_id == 2){
-      return "อุปกรณ์พร้อมรับ"
+    if (status.status_id == 2) {
+      return "กำลังดำเนินการ";
+    } else {
+      return "อุปกรณ์มีปัญหา";
     }
-    else{
-      return "อุปกรณ์มีปัญหา"
-    }
-  };
- 
+  }
 
-  const [name, setName] = useState([]);
+  // const [name, setName] = useState([]);
 
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    API.post(`api/details/`).then((res) => {
-      console.log("device", res.data.user);
-      setName(res.data.user);
-    });
-  }, []);
+  const [number, setNumber] = useState(1);
+
+  const [user] = Userapi();
 
 
-  useEffect(() => {
-    API.get(`api/lendproduct/`).then((res) => {
-      console.log("lend",res.data);
-      for(let i of res.data){
+  if (number === 1) {
+    API.get(`api/lendproduct/` + user).then((res) => {
+      console.log("lend", res.data);
+      console.log("user", user);
+      for (let i of res.data) {
         i.status_id = statusTotext(i);
+
       }
       setData(res.data);
+      
     });
-  }, []);
+    setTimeout(() => {
+      setNumber(0);
+    
+    }, 1500);
+  }
 
-  
-  const columns = [ 
+  const columns = [
     // {
     //   name: "รูป",
     //   selector: "product_picture",
@@ -87,9 +85,13 @@ export default function Devivestatus(props) {
     {
       name: "รูป",
       cell: (row) => (
-        <img src={"http://127.0.0.1:8000/storage/" + row.product_picture} alt={row.product_name} height="80" width="80" />
-      )
-
+        <img
+          src={"http://127.0.0.1:8000/storage/" + row.product_picture}
+          alt={row.product_name}
+          height="80"
+          width="80"
+        />
+      ),
     },
     {
       name: "อุปกรณ์",
@@ -121,8 +123,6 @@ export default function Devivestatus(props) {
         sortable: true,
       },
 
-   
- 
     // {
     //   name: "Test",
     //   center: true,
@@ -136,22 +136,9 @@ export default function Devivestatus(props) {
     // },
   ];
 
- 
- 
- 
-
   return (
-
-    
     <div className="content-wrapper">
-     
-       
-       <DataTable
-     
-       columns={columns}
-       data={data}
-         />
-          
+      <DataTable columns={columns} data={data} />
     </div>
   );
 }

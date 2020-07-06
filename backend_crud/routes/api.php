@@ -20,14 +20,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 // อุปกรณ์
 Route::resource('product', 'productsController');
-Route::put('updatepicture/{id}', 'productsController@updatepicture');
+Route::put('updatepicture/{id}', 'updateController@updatepicture');
 Route::resource('lendproduct', 'LendproductController');
 Route::resource('send', 'SendController');
-
 //login and register
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::get('show', 'UserController@show');
+Route::get('/showlend/{id}', 'showController@show');
 Route::get('/getuserbyid/{id}', 'UserController@getUserByID');
 Route::delete('/destroy/{id}', 'UserController@destroy');
 Route::put('/userupdate/{id}', 'UserController@userupdate');

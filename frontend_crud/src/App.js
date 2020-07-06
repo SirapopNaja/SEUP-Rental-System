@@ -5,6 +5,7 @@ import Prepare from './components/Prepare';
 import Update from './components/update';
 
 import Login from './components/Login'
+import home from './components/home'
 import Register from './components/Register';
 import {  BrowserRouter as Router,  Route, } from "react-router-dom";
 import Header from './components/Header';
@@ -41,6 +42,7 @@ function App() {
         <Route path="/index" component={Index}/>
         <Route path="/BasketPD" component={Basket}/>
         <Route path="/Prepare" component={Prepare}/>
+        <Route path="/home" component={home}/>
         <Route path="/Request/:id" component={Request}/>
         <Route path="/Basket/:id" component={Basket}/>
         <Route path="/Devicestatus" component={Devicestatus}/>

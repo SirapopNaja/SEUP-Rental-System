@@ -48,10 +48,10 @@ export default function PrepareEquipment(props) {
 
   function statusTotext(status) {
     if (status.status_id == 1){
-      return "กำลังดำเนินการ"
+      return "อุปกรณ์พร้อมรับ"
     }
     if (status.status_id == 2){
-      return "อุปกรณ์พร้อมรับ"
+      return "กำลังดำเนินการ"
     }
     if (status.status_id == 3){
       return "รับอุปกรณ์แล้ว"

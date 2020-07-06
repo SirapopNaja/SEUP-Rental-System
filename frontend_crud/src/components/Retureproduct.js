@@ -57,7 +57,7 @@ export default function Returnproduct(props) {
  
   useEffect(() => {
     const id = props.match.params.id;
-    API.get(`api/lendproduct/` + id).then((res) => {
+    API.get(`api/showlend/` + id).then((res) => {
       console.log(res.data);
       setData(res.data);
     });
