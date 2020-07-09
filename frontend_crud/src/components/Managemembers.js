@@ -134,6 +134,7 @@ export default function Managemembers(props) {
 
   return (
     <div className="content-wrapper">
+      <h3>จัดการสมาชิก</h3>
       <DataTable columns={columns} data={data} />
     </div>
   );

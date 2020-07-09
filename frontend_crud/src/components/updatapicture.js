@@ -7,6 +7,17 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+
 export default function Updatapicture(props) {
 
     
@@ -43,6 +54,9 @@ export default function Updatapicture(props) {
   const onSubmitHome = (e) => {
     props.history.push("/index");
   };
+  const classes = useStyles();
+
+
   return (
     <div className="content-wrapper">
       <section className="content">
@@ -50,25 +64,34 @@ export default function Updatapicture(props) {
           <div className="col-md-6">
             <div className="box box-primary">
               <div className="box-header with-border">
-                <h3 className="box-title">Create Equipment</h3>
+                <h3 className="box-title">แก้ไข้รูปภาพอุปกรณ์</h3>
                 <br></br>
               </div>
               <form onSubmit={onSubmit} role="form">
                 <div className="box-body">
 
-                <div className="form-group">
-                  <label>ID</label>
-                    <label className="form-control"
-                      type="text"
-                      value={data.id}
-                      name="id"
-                      >{data.id}
-                      </label>
-                  </div>
-
+         
+                  <div className={classes.root}>
+                   <Grid container spacing={6}>
+                    <Grid item xs={6}>
+                   <Paper className={classes.paper}> 
+                    <div class="form-group">
+                      <label>รูปภาพ</label><br></br>
+                      <img
+                        src={"http://127.0.0.1:8000/storage/" + data.product_picture}
+                        alt={data.id}
+                        height="200"
+                        width="200"
+                      />
+                    </div></Paper>
+                    </Grid>
+                    </Grid>
+                    </div>
+                    <br></br>  <br></br>
                   <div className="form-group">
                     <label>ชื่ออุปกรณ์</label>
                     <input
+                      disabled
                       className="form-control"
                       type="text"
                       value={data.product_name}
@@ -79,6 +102,7 @@ export default function Updatapicture(props) {
                   <div className="form-group">
                     <label>รหัสอุปกรณ์</label>
                     <input
+                    disabled
                       className="form-control"
                       type="text"
                       value={data.product_number}
@@ -99,7 +123,7 @@ export default function Updatapicture(props) {
                 <div className="form-row">
                   <div className="col">
                     <Button type="submit" variant="contained" color="primary">
-                      submit
+                      บันทึก
                     </Button>
                   </div>
                 </div>

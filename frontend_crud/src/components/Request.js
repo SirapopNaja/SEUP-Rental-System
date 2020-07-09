@@ -41,7 +41,7 @@ export default function Request(props) {
 
     useEffect(() => {
         const id = props.match.params.id;
-        API.get(`api/lendproduct/` + id).then((res) => {
+        API.get(`api/showlend/` + id).then((res) => {
           console.log(res.data);
           setData(res.data);
         });
@@ -88,8 +88,13 @@ export default function Request(props) {
           </Grid>
         </Grid>
       </div>
+       
+
                   <div class="box-body">
-                    <div class="form-group">
+
+                  <div class="row">
+                  <div class="col">
+                  <div class="form-group">
                       <label>อุปกรณ์</label>
                       <input
                         disabled
@@ -100,18 +105,6 @@ export default function Request(props) {
                         name="product_name"
                         onChange={handle}
                       />
-                    </div>
-                    <div class="form-group">
-                      <label>รหัสอุปกรณ์</label>
-                      <input
-                        disabled
-                        id="standard-disabled"
-                        class="form-control"
-                        type="text"
-                        value={data.product_number}
-                        name="product_number"
-                        onChange={handle}
-                      ></input>
                     </div>
                     <div class="form-group">
                       <label>รายละเอียด</label>
@@ -125,7 +118,6 @@ export default function Request(props) {
                         onChange={handle}
                       ></input>
                     </div>
-  
                     <div class="form-group">
                       <label>ชื่อ</label>
                       <input
@@ -138,24 +130,20 @@ export default function Request(props) {
                         onChange={handle}
                       ></input>
                     </div>
+                   </div>
+                    <div class="col">
                     <div class="form-group">
-                      <label>นามสกุล</label>
+                      <label>รหัสอุปกรณ์</label>
                       <input
                         disabled
                         id="standard-disabled"
                         class="form-control"
                         type="text"
-                        value={data.last_name}
-                        name="last_name"
+                        value={data.product_number}
+                        name="product_number"
                         onChange={handle}
                       ></input>
                     </div>
-                 
-                    {/*<div>
-                                      <label>รูปประกอบ</label>
-                                      <img src={"http://127.0.0.1:8000/storage/"} alt={picture} height="42" width="42" />
-                                     
-                                      </div>*/}
                     <div class="form-group">
                       <label>สถานะการจัดเตรียม</label>
                       <select
@@ -169,9 +157,36 @@ export default function Request(props) {
                         <option value="2">กำลังดำเนินการ</option>
                         <option value="1">อุปกรณ์พร้อมรับ</option>
                         <option value="3">รับอุปกรณ์แล้ว</option>
-                        <option value="4">อุปกรณ์มีปัญหา</option>
                       </select>
                     </div>
+                   
+                    <div class="form-group">
+                      <label>นามสกุล</label>
+                      <input
+                        disabled
+                        id="standard-disabled"
+                        class="form-control"
+                        type="text"
+                        value={data.last_name}
+                        name="last_name"
+                        onChange={handle}
+                      ></input>
+                    </div>
+                      </div>
+                     </div>
+
+                  
+                 
+                   
+  
+                 
+                 
+                    {/*<div>
+                                      <label>รูปประกอบ</label>
+                                      <img src={"http://127.0.0.1:8000/storage/"} alt={picture} height="42" width="42" />
+                                     
+                                      </div>*/}
+               
                   </div>
                   <div class="form-row">
                     <div class="col">

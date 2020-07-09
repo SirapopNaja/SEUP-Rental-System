@@ -16,14 +16,36 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const DeleteButton = styled.button`
-  background: red;
-  color: white;
-  width: 60px;
+  background: yellow;
+  color: black;
+  width: 100px;
   height: 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 `;
+
+const DeleteButton2 = styled.button`
+  background: #339fff;
+  color: white;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const DeleteButton3 = styled.button`
+  background: green;
+  color: white;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+
 const EditButton = styled.button`
   background: blue;
   color: white;
@@ -67,10 +89,11 @@ export default function PrepareEquipment(props) {
     //   sortable: true,
     // },
     {
-      name: "ชื่อ-นามสกุล",
-      selector: "name",
+      name: "ชื่อ",
+      selector: "name" ,
       sortable: true,
     },
+
   
     {
       name: "อุปกรณ์",
@@ -97,9 +120,15 @@ export default function PrepareEquipment(props) {
 
     {
         name: "สถานะ",
-        selector: "status_id",
-        sortable: true,
-      },
+        center: true,
+      cell: (row) => (
+           <div> {  row.status_id === "กำลังดำเนินการ" ? <DeleteButton >กำลังดำเนินการ</DeleteButton> :
+                    row.status_id === "อุปกรณ์พร้อมรับ" ? <DeleteButton2 >อุปกรณ์พร้อมรับ</DeleteButton2>
+                :   <DeleteButton3 >รับอุปกรณ์แล้ว</DeleteButton3> }
+            
+           </div>
+      ),
+    },
 
       {
         name: "ขอยืม",
@@ -136,6 +165,7 @@ export default function PrepareEquipment(props) {
 
   return (
     <div className="content-wrapper">
+        <h3>จัดเตรียมอุปกรณ์</h3>
       <DataTable
    
         columns={columns}

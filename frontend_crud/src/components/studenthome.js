@@ -27,7 +27,7 @@ const DeleteButton = styled.button`
 const EditButton = styled.button`
   background: green;
   color: white;
-  width: 60px;
+  width: 80px;
   height: 30px;
   border: none;
   border-radius: 5px;
@@ -37,7 +37,7 @@ const EditButton = styled.button`
 const EditButton2 = styled.button`
   background: red;
   color: white;
-  width: 60px;
+  width: 80px;
   height: 30px;
   border: none;
   border-radius: 5px;
@@ -94,18 +94,13 @@ export default function Studenthome(props) {
       sortable: true,
     },
 
+  
     {
-        name: "สถานะ",
-        selector: "status_id",
-        sortable: true,
-      },
-
-    {
-      name: "ขอยืม",
+      name: "Status",
       center: true,
       cell: (row) => (
-      <div> {  row.status_id === "ว่าง" ? <EditButton onClick={() => handleOnclickEdit(row.id)}>ยืม</EditButton> :   
-            <EditButton2 >ยืมไม่ได้</EditButton2> }</div>
+      <div> {  row.status_id === "ว่าง" ? <EditButton onClick={() => handleOnclickEdit(row.id)}>Available</EditButton> :   
+            <EditButton2 >Unavailable</EditButton2> }</div>
       ),
     },
  

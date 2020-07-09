@@ -3,6 +3,8 @@ import API from "../api";
 import styled from "styled-components";
 import DataTable from "react-data-table-component";
 import "./App.css";
+import 'moment/locale/th';
+import moment from 'moment';
 
 const Button = styled.button`
   background: #339fff;
@@ -84,8 +86,7 @@ export default function Returndevice(props) {
       
           {
             name: "เวลาที่ทำการขอยืม",
-
-            selector: ("created_at"),
+            cell: row => (moment(row.created_at).format('LL')),
             sortable: true,
           },
       
@@ -133,6 +134,7 @@ export default function Returndevice(props) {
 
     return (
         <div className="content-wrapper">
+          <h3>คืนอุปกรณ์</h3>
         <DataTable
      
           columns={columns}

@@ -124,53 +124,57 @@ console.log('mydata', myData)
                     </div>
                     <br></br>
                     <br></br>
-                      <div className="form-group">
-              
-                   <label>ชื่ออุปกรณ์</label>
-                    <label className="form-control"
+                    <div class="row">
+                    <div class="col">
+                    <div className="form-group">
+                    <label>ชื่ออุปกรณ์</label>
+                    <input
+                      disabled
+                      className="form-control"
                       type="text"
                       value={data.product_name}
-                      name="id"
-                      >{data.product_name}
-                      </label>
-
-                      </div>
-                      <label>รหัสอุปกรณ์</label>
-                    <label className="form-control"
+                      name="product_name"
+                      
+                    ></input>
+                  </div>
+                  <div className="form-group">
+                    <label>รายละเอียด</label>
+                    <input
+                      disabled
+                      className="form-control"
+                      type="text"
+                      value={data.product_details}
+                      name="product_details"
+                      
+                    ></input>
+                  </div>
+                    </div>
+                    <div class="col">
+                    <div className="form-group">
+                    <label>รหัสอุปกรณ์</label>
+                    <input
+                      disabled
+                      className="form-control"
                       type="text"
                       value={data.product_number}
-                      name="id"
-                      >{data.product_number}
-                      </label>
+                      name="product_number"
+                      
+                    ></input>
+                  </div>
 
-                      <label>รายละเอียด</label>
-                    <label className="form-control"
-                      type="text"
-                      value={data.product_name}
-                      name="id"
-                      >{data.product_details}
-                      </label>
+                  <div className="form-group">
+                    <label></label>
+                  </div>
+
+
+                    </div>
+                  </div>
+                  
+
+               
 
                       </div>
-                      <div class="form-group">
-                    <label>ระยะเวลายืม</label>
-                    <select
-                      class="form-control"
-                      name="lend_day"
-                      id="lend_day"
-                      value={data.lend_day}
-                      onChange={handle}
-                    >
-                      <option value=""></option>
-                      <option value="1">1 วัน</option>
-                      <option value="2">2 วัน</option>
-                      <option value="3">3 วัน</option>
-                      <option value="4">4 วัน</option>
-                      <option value="5">5 วัน</option>
-                      <option value="6">6 วัน</option>
-                      <option value="7">7 วัน</option>
-                    </select>
-                  </div>
+                      
                   
                    
                   

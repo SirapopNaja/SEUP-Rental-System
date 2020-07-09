@@ -36,6 +36,7 @@ export default function Prepare(props) {
         formData.append('product_type', data.product_type);
         formData.append('product_number', data.product_number);
         formData.append('product_details', data.product_details);
+        formData.append('lend_day', data.lend_day);
         API.post(`api/product/`, formData)
             .then(res => {
                 console.log(res.data);
@@ -67,12 +68,18 @@ export default function Prepare(props) {
                                             <option value=""></option>
                                             <option value="กลุ่มทำสื่อ">กลุ่มทำสื่อ</option>
                                             <option value="กลุ่มเครื่องมือ">กลุ่มเครื่องมือ</option>
+                                            <option value="อุปกรณ์ฮาร์ดแวร์">อุปกรณ์ฮาร์ดแวร์</option>
+                                            <option value="อุปกรณ์เครื่องเขียน">อุปกรณ์เครื่องเขียน</option>
                                             <option value="อุปกรณ์อื่นๆ">อุปกรณ์อื่นๆ</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>รหัสอุปกรณ์</label>
                                         <input class="form-control" type="text" value={data.product_number} name="product_number" onChange={handle}></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ยืมได้กี่วัน</label>
+                                        <input class="form-control" type="number" value={data.lend_day} name="lend_day" onChange={handle}></input>
                                     </div>
                                     <div>
                                         รูปภาพอุปกรณ์

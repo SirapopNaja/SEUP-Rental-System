@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { Userapi } from "../components/service/userapi";
 import DataTable from "react-data-table-component";
 import "./App.css";
+import 'moment/locale/th';
+import moment from 'moment';
 
 const Button = styled.button`
   background: #339fff;
@@ -17,9 +19,29 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const DeleteButton = styled.button`
-  background: red;
+  background: yellow;
+  color: black;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const DeleteButton2 = styled.button`
+  background: #339fff;
   color: white;
-  width: 60px;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const DeleteButton3 = styled.button`
+  background: green;
+  color: white;
+  width: 100px;
   height: 30px;
   border: none;
   border-radius: 5px;
@@ -46,7 +68,7 @@ export default function Devivestatus(props) {
     if (status.status_id == 2) {
       return "กำลังดำเนินการ";
     } else {
-      return "อุปกรณ์มีปัญหา";
+      return "รับอุปกรณ์แล้ว";
     }
   }
 
@@ -107,7 +129,7 @@ export default function Devivestatus(props) {
 
     {
       name: "เวลายืม",
-      selector: "created_at",
+      cell: row => (moment(row.created_at).format('LL')),
       sortable: true,
     },
 
@@ -118,10 +140,16 @@ export default function Devivestatus(props) {
     },
 
     {
-        name: "สถานะ",
-        selector: "status_id",
-        sortable: true,
-      },
+      name: "สถานะ",
+      center: true,
+    cell: (row) => (
+         <div> {  row.status_id === "กำลังดำเนินการ" ? <DeleteButton >กำลังดำเนินการ</DeleteButton> :
+                  row.status_id === "อุปกรณ์พร้อมรับ" ? <DeleteButton2 >อุปกรณ์พร้อมรับ</DeleteButton2>
+              :   <DeleteButton3 >รับอุปกรณ์แล้ว</DeleteButton3> }
+          
+         </div>
+    ),
+  },
 
     // {
     //   name: "Test",

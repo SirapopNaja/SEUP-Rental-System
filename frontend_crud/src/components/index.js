@@ -108,21 +108,26 @@ export default function Index(props) {
       selector: "product_number",
       sortable: true,
     },
+    {
+      name: "ระยะเวลาการยืม",
+      selector: "lend_day",
+      sortable: true,
+    },
 
 
     {
-      name: "แก้ไข",
+      name: "แก้ไข้",
       center: true,
       cell: (row) => (
-        <EditButton onClick={() => handleOnclickEdit(row.id)}>แก้ไข</EditButton>
+        <EditButton onClick={() => handleOnclickEdit(row.id)}>แก้ไข้</EditButton>
       ),
     },
 
     {
-      name: "แก้ไขรูป",
+      name: "แก้ไข้รูป",
       center: true,
       cell: (row) => (
-        <UPButton onClick={() => handleOnclickEditpicture(row.id)}>แก้ไขรูป</UPButton>
+        <UPButton onClick={() => handleOnclickEditpicture(row.id)}>แก้ไข้รูป</UPButton>
       ),
     },
 

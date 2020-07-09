@@ -123,34 +123,20 @@ export default function Returnproduct(props) {
                     </div>
                     <br></br>
                     <br></br>
+
+                     <div class="row">
+                      <div class="col">
                       <div className="form-group">
-              
-                   <label>ชื่ออุปกรณ์</label>
-                    <label className="form-control"
+                    <label>ชื่ออุปกรณ์</label>
+                    <input
+                      disabled
+                      className="form-control"
                       type="text"
                       value={data.product_name}
-                      name="id"
-                      >{data.product_name}
-                      </label>
-
-                      </div>
-                      <label>รหัสอุปกรณ์</label>
-                    <label className="form-control"
-                      type="text"
-                      value={data.product_number}
-                      name="id"
-                      >{data.product_number}
-                      </label>
-
-                      <label>รายละเอียด</label>
-                    <label className="form-control"
-                      type="text"
-                      value={data.product_name}
-                      name="id"
-                      >{data.product_details}
-                      </label>
-
-                      </div>
+                      name="product_name"
+                      
+                    ></input>
+                  </div>
                       <div class="form-group">
                     <label>สถานะการคืน</label>
                     <select
@@ -165,8 +151,19 @@ export default function Returnproduct(props) {
                       <option value="2">เกินกำหนดเวลา</option>
                     </select>
                   </div>
-                  
-                  <div class="form-group">
+                      </div>
+                      <div class="col">
+                      <div className="form-group">
+                    <label>รหัสอุปกรณ์</label>
+                    <input
+                    disabled
+                      className="form-control"
+                      type="text"
+                      value={data.product_number}
+                      name="product_number"
+                    ></input>
+                    </div>
+                      <div class="form-group">
                     <label>สภาพอุปกรณ์</label>
                     <select
                       class="form-control"
@@ -180,6 +177,17 @@ export default function Returnproduct(props) {
                       <option value="2">ชำรุด</option>
                     </select>
                   </div>
+                      </div>
+                    </div>
+                   
+                  
+
+                      
+
+                      </div>
+                
+                  
+            
                   
                   
                    

@@ -41,6 +41,7 @@ class productsController extends Controller
             'product_number' => 'required',
             'product_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'product_details' => 'required',
+            'lend_day' => 'required',
             
         ]);
 
@@ -56,6 +57,7 @@ class productsController extends Controller
             $product->product_type = $request->input('product_type');
             $product->product_number = $request->input('product_number');
             $product->product_details = $request->input('product_details');
+            $product->lend_day = $request->input('lend_day');
             $product->product_picture = $imageName;
 
             $product->save();
@@ -101,6 +103,7 @@ class productsController extends Controller
             // 'product_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'product_details' => 'required',
             'status_id' => 'required',
+            'lend_day' => 'required',
             
         ]);
 
@@ -116,6 +119,7 @@ class productsController extends Controller
             $product->product_type = $request->input('product_type');
             $product->product_number = $request->input('product_number');
             $product->product_details = $request->input('product_details');
+            $product->lend_day = $request->input('lend_day');
             $product->status_id = $request->input('status_id');
             // $product->product_picture = $imageName;
 

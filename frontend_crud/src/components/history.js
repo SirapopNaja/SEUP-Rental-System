@@ -3,6 +3,8 @@ import API from "../api";
 import styled from "styled-components";
 import DataTable from "react-data-table-component";
 import "./App.css";
+import 'moment/locale/th';
+import moment from 'moment';
 
 const Button = styled.button`
   background: #339fff;
@@ -44,6 +46,8 @@ export default function History(props) {
         console.log(id);
         props.history.push("/Basket/" + id);
       };
+
+      // const m = moment('created_at');
        
     
     
@@ -80,6 +84,12 @@ export default function History(props) {
             selector: "name",
             sortable: true,
           },
+          {
+            name: "นามสกุล",
+            selector: "last_name",
+            sortable: true,
+          },
+        
         
           {
             name: "อุปกรณ์",
@@ -92,12 +102,13 @@ export default function History(props) {
             sortable: true,
           },
       
+          // moment().format('Do MMMM YYYY')
           {
-            name: "เวลาที่ทำการขอยืม",
-            selector: "created_at",
+            name: "เวลาที่ทำการคืน",
+            cell: row => (moment(row.created_at).format('LL')),
             sortable: true,
           },
-      
+
           {
             name: "ระยะเวลาการยืม",
             selector: "lend_day",

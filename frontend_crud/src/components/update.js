@@ -41,6 +41,7 @@ export default function Update(props) {
     formData.append("product_type", data.product_type);
     formData.append("product_number", data.product_number);
     formData.append("product_details", data.product_details);
+    formData.append("lend_day", data.lend_day);
     formData.append("status_id", data.status_id);
     formData.append("_method", "put");
     const id = props.match.params.id;
@@ -59,7 +60,7 @@ export default function Update(props) {
           <div className="col-md-6">
             <div className="box box-primary">
               <div className="box-header with-border">
-                <h3 className="box-title">Create Equipment</h3>
+                <h3 className="box-title">แก้ไข้อุปกรณ์</h3>
                 <br></br>
               </div>
               <form onSubmit={onSubmit} role="form">
@@ -110,6 +111,16 @@ export default function Update(props) {
                       onChange={handle}
                     ></input>
                     </div>
+                    <div className="form-group">
+                    <label>ระยะเวลาการยืม</label>
+                    <input
+                      className="form-control"
+                      type="number"
+                      value={data.lend_day}
+                      name="lend_day"
+                      onChange={handle}
+                    ></input>
+                    </div>
                   {/* <div>
                     รูปภาพอุปกรณ์
                     <input
@@ -133,7 +144,7 @@ export default function Update(props) {
                 <div className="form-row">
                   <div className="col">
                     <Button type="submit" variant="contained" color="primary">
-                      submit
+                      บันทึก
                     </Button>
                   </div>
                 </div>

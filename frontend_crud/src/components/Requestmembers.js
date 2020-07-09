@@ -120,7 +120,9 @@ export default function Requestmembers(props) {
       </Grid>
     </div>
                 <div class="box-body">
-                  <div class="form-group">
+                <div class="row">
+                <div class="col">
+                <div class="form-group">
                     <label>องค์กร</label>
                     <input
                       disabled
@@ -133,19 +135,6 @@ export default function Requestmembers(props) {
                     />
                   </div>
                   <div class="form-group">
-                    <label>ตำแหน่ง</label>
-                    <input
-                      disabled
-                      id="standard-disabled"
-                      class="form-control"
-                      type="text"
-                      value={data.position}
-                      name="position"
-                      onChange={handle}
-                    ></input>
-                  </div>
-
-                  <div class="form-group">
                     <label>first_name</label>
                     <input
                       disabled
@@ -154,6 +143,32 @@ export default function Requestmembers(props) {
                       type="text"
                       value={data.name}
                       name="name"
+                      onChange={handle}
+                    ></input>
+                  </div>
+                  <div class="form-group">
+                    <label>phone_number</label>
+                    <input
+                      disabled
+                      id="standard-disabled"
+                      class="form-control"
+                      type="text"
+                      value={data.phone_number}
+                      name="phone_number"
+                      onChange={handle}
+                    ></input>
+                  </div>
+                </div>
+                <div class="col">
+                <div class="form-group">
+                    <label>ตำแหน่ง</label>
+                    <input
+                      disabled
+                      id="standard-disabled"
+                      class="form-control"
+                      type="text"
+                      value={data.position}
+                      name="position"
                       onChange={handle}
                     ></input>
                   </div>
@@ -170,23 +185,6 @@ export default function Requestmembers(props) {
                     ></input>
                   </div>
                   <div class="form-group">
-                    <label>phone_number</label>
-                    <input
-                      disabled
-                      id="standard-disabled"
-                      class="form-control"
-                      type="text"
-                      value={data.phone_number}
-                      name="phone_number"
-                      onChange={handle}
-                    ></input>
-                  </div>
-                  {/*<div>
-                                    <label>รูปประกอบ</label>
-                                    <img src={"http://127.0.0.1:8000/storage/"} alt={picture} height="42" width="42" />
-                                   
-                                    </div>*/}
-                  <div class="form-group">
                     <label>ให้สถานะผู้ใช้ระบบ</label>
                     <select
                       class="form-control"
@@ -200,6 +198,20 @@ export default function Requestmembers(props) {
                       <option value="เจ้าหน้าที่">เจ้าหน้าที</option>
                     </select>
                   </div>
+                </div>
+              </div>
+               
+                 
+
+                  
+                 
+              
+                  {/*<div>
+                                    <label>รูปประกอบ</label>
+                                    <img src={"http://127.0.0.1:8000/storage/"} alt={picture} height="42" width="42" />
+                                   
+                                    </div>*/}
+          
                 </div>
                 <div class="form-row">
                   <div class="col">
