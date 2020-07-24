@@ -54,9 +54,25 @@ export default function Login(props) {
   const [data, setData] = useState({
     email: "",
     password: "",
+    emailError: "",
+    passwordError: "",
 
    
 })
+
+// function validate() {
+//   let emailError= "";
+//   // let passwordError= "";
+//   if(this.data.email.includes("@")){
+//     emailError = "invalid email";
+//   }
+//   if(emailError){
+//     this.setData({emailError});
+//     return false;
+//   }
+//   return true;
+// }
+
 const handle = (e) => {
   const newData = { ...data }
   newData[e.target.name] = e.target.value
@@ -64,6 +80,8 @@ const handle = (e) => {
 }
 const onSubmit = (e) => {
   e.preventDefault();
+  // const isValid = this.validate();
+  // if (isValid){
   var formData = new FormData();
     formData.append('email', data.email);
     formData.append('password', data.password);
@@ -73,6 +91,7 @@ const onSubmit = (e) => {
         localStorage.setItem('access_token',res.data.success.token);
         props.history.push('/home')
     })
+  // }
   
   }
   return (
@@ -95,11 +114,14 @@ const onSubmit = (e) => {
               id="email"
               label="Email Address"
               name="email"
+              placeholder="exsample@email.com"
+              required="required"
               value={data.email}
               onChange={handle}
               autoComplete="email"
               autoFocus
             />
+            {/* <div style={{font:12, color: "red"}}>{data.emailError}</div> */}
             <TextField
               variant="outlined"
               margin="normal"
@@ -113,6 +135,7 @@ const onSubmit = (e) => {
               onChange={handle}
               autoComplete="current-password"
             />
+            {/* <div style={{font:12, color: "red"}}>{data.passwordError}</div> */}
             {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"

@@ -163,7 +163,14 @@ console.log('mydata', myData)
                   </div>
 
                   <div className="form-group">
-                    <label></label>
+                    <label>ระยะเวลาในการยืม</label>
+                    <input
+                      disabled
+                      className="form-control"
+                      type="text"
+                      value={data.lend_day}
+                      name="lend_day"
+                    ></input>
                   </div>
 
 

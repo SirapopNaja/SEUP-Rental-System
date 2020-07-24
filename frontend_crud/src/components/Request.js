@@ -21,17 +21,19 @@ const useStyles = makeStyles((theme) => ({
 export default function Request(props) {
     // const [basket, setBasket] = useState([]);
     const [data, setData] = useState({
-    //   product_name: "",
-    //   product_type: "",
-    //   product_number: "",
-    //   product_picture: "",
-    //   product_details: "",
+      product_name: "",
+      product_type: "",
+      product_number: "",
+      product_picture: "",
+      product_details: "",
       status_id: "",
-    //   lend_day: "",
-    //   name: "",
-    //   last_name: "",
+      lend_day: "",
+      name: "",
+      last_name: "",
+      product_id: "",
     });
-
+    const [status, setStatus] = useState(1);
+   
     const handle = (e) => {
         const newData = { ...data };
         newData[e.target.name] = e.target.value;
@@ -39,11 +41,11 @@ export default function Request(props) {
       };
     
 
-    useEffect(() => {
+      useEffect(() => {
         const id = props.match.params.id;
-        API.get(`api/showlend/` + id).then((res) => {
-          console.log(res.data);
-          setData(res.data);
+        API.get(`api/lendproduct/` + data.product_id).then((res) => {
+          console.log("look",res.data[0]);
+          setData(res.data[0]);
         });
       }, [props]);
 
@@ -55,7 +57,7 @@ export default function Request(props) {
         formData.append("status_id", data.status_id);
         formData.append("_method", "put");
         const id = props.match.params.id;
-        API.post(`api/lendproduct/` + id, formData).then((res) => {
+        API.post(`api/updatestatus/` + data.product_id, formData).then((res) => {
           console.log(res.data);
           props.history.push("/PrepareEquipment");
         });
@@ -84,7 +86,8 @@ export default function Request(props) {
                       height="150"
                       width="150"
                     />
-                  </div></Paper>
+                  </div>
+                  </Paper>
           </Grid>
         </Grid>
       </div>

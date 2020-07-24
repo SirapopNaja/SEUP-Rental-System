@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Lendproduct;
 
 class updateController extends Controller
 {
@@ -31,4 +32,42 @@ class updateController extends Controller
             return $product;
         }
     }
+
+    public function updatelend(Request $request, $id)
+    {
+        $request->validate([
+    
+           'product_picture' => 'required',
+          
+            
+        ]);
+
+        $product = Lendproduct::find($id);
+
+         $product->product_picture = $request->input('product_picture');
+
+            $product->save();
+            return $product;
+        }
+
+
+        
+
+        
+        public function updatestatus(Request $request, $id)
+    {
+        $request->validate([
+           
+            'status_id' => 'required',
+                    
+        ]);
+
+        $product = Lendproduct::find($id);
+
+       
+            $product->status_id = $request->status_id;
+            $product->save();
+            return $product;
+        }
+    
 }

@@ -135,14 +135,8 @@ export default function Index(props) {
       name: "ลบ",
       center: true,
       cell: (row) => (
-        <DeleteButton
-          onClick={() => {
-            if (window.confirm("Are you sure you want delete this item?"))
-              onRemove(row.id);
-          }}
-        >
-          ลบ
-        </DeleteButton>
+        <div>
+          { row.status_id === 1 ? <DeleteButton onClick={() => {if (window.confirm("Are you sure you want delete this item?"))onRemove(row.id);}}>ลบ</DeleteButton> :"" }</div>
       ),
     },
     // {

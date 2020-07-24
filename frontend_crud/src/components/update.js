@@ -14,7 +14,18 @@ export default function Update(props) {
     product_type: "",
     product_number: "",
     product_details: "",
+    lend_day: "",
+    status_id: "1",
   });
+
+  const myData = {
+    product_name : data.product_name,
+    product_type :  data.product_type,
+    product_number : data.product_number,
+    product_details : data.product_details,
+    lend_day : data.lend_day,
+    status_id : data.status_id,
+}
   const handlePicture = (e) => {
     setPicture(e.target.files[0]);
   };
@@ -24,6 +35,8 @@ export default function Update(props) {
     API.get(`api/product/` + id).then((res) => {
       console.log(res.data);
       setData(res.data);
+      
+
     });
   }, [props]);
 
@@ -36,7 +49,7 @@ export default function Update(props) {
   const onSubmit = (e) => {
     e.preventDefault();
     var formData = new FormData();
-    formData.append("product_picture", picture);
+    
     formData.append("product_name", data.product_name);
     formData.append("product_type", data.product_type);
     formData.append("product_number", data.product_number);
@@ -47,8 +60,12 @@ export default function Update(props) {
     const id = props.match.params.id;
     API.post(`api/product/` + id, formData).then((res) => {
       console.log(res.data);
+    API.put(`api/lendproduct/` + id, myData).then((res) => {
+        console.log(res.data)
+      });
       props.history.push("/index");
     });
+
   };
   const onSubmitHome = (e) => {
     props.history.push("/index");
@@ -80,6 +97,7 @@ export default function Update(props) {
                     <label>ชื่ออุปกรณ์</label>
                     <input
                       className="form-control"
+                      required="required"
                       type="text"
                       value={data.product_name}
                       name="product_name"
@@ -90,6 +108,7 @@ export default function Update(props) {
                     <label>หมวดหมู่อุปกรณ์</label>
                     <select
                       className="form-control"
+                      required="required"
                       name="product_type"
                       id="product_type"
                       value={data.product_type}
@@ -105,6 +124,7 @@ export default function Update(props) {
                     <label>รหัสอุปกรณ์</label>
                     <input
                       className="form-control"
+                      required="required"
                       type="text"
                       value={data.product_number}
                       name="product_number"
@@ -112,8 +132,10 @@ export default function Update(props) {
                     ></input>
                     </div>
                     <div className="form-group">
+                      
                     <label>ระยะเวลาการยืม</label>
                     <input
+                       required="required"
                       className="form-control"
                       type="number"
                       value={data.lend_day}
@@ -134,6 +156,7 @@ export default function Update(props) {
                     <label>รายละเอียดอุปกรณ์</label>
                     <textarea
                       className="form-control"
+                      required="required"
                       type="text"
                       value={data.product_details}
                       name="product_details"

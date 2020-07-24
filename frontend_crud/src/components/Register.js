@@ -115,6 +115,7 @@ export default function Register(props) {
                   label="องค์กร"
                   type="องค์กร"
                   id="องค์กร"
+                  required="required" 
                   value={data.company}
                   onChange={handle}
                   autoComplete="องค์กร"
@@ -124,7 +125,7 @@ export default function Register(props) {
                 <TextField
                   variant="outlined"
                   margin="normal"
-                  required
+                  required="required" 
                   fullWidth
                   name="position"
                   label="ตำแหน่ง"

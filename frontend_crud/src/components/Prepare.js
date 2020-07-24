@@ -60,11 +60,11 @@ export default function Prepare(props) {
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label>ชื่ออุปกรณ์</label>
-                                        <input class="form-control" type="text" value={data.product_name} name="product_name" onChange={handle}></input>
+                                        <input class="form-control" required="required" type="text" value={data.product_name} name="product_name" onChange={handle}></input>
                                     </div>
                                     <div class="form-group">
                                         <label>หมวดหมู่อุปกรณ์</label>
-                                        <select class="form-control" name="product_type" id="product_type" value={data.product_type} onChange={handle}>
+                                        <select class="form-control" required="required"  name="product_type" id="product_type" value={data.product_type} onChange={handle}>
                                             <option value=""></option>
                                             <option value="กลุ่มทำสื่อ">กลุ่มทำสื่อ</option>
                                             <option value="กลุ่มเครื่องมือ">กลุ่มเครื่องมือ</option>
@@ -75,15 +75,15 @@ export default function Prepare(props) {
                                     </div>
                                     <div class="form-group">
                                         <label>รหัสอุปกรณ์</label>
-                                        <input class="form-control" type="text" value={data.product_number} name="product_number" onChange={handle}></input>
+                                        <input class="form-control" required="required" type="text" value={data.product_number} name="product_number" onChange={handle}></input>
                                     </div>
                                     <div class="form-group">
                                         <label>ยืมได้กี่วัน</label>
-                                        <input class="form-control" type="number" value={data.lend_day} name="lend_day" onChange={handle}></input>
+                                        <input class="form-control" required="required" type="number" value={data.lend_day} name="lend_day" onChange={handle}></input>
                                     </div>
                                     <div>
                                         รูปภาพอุปกรณ์
-                                        <input type="file"  name="product_picture" onChange={handlePicture} />
+                                        <input type="file" required="required"  name="product_picture" onChange={handlePicture} />
                                     </div>
                                     {/* <div>
                                         <label>UploadImage</label>
@@ -105,7 +105,7 @@ export default function Prepare(props) {
                                     </div> */}
                                     <div class="form-group">
                                         <label>รายละเอียดอุปกรณ์</label>
-                                        <textarea class="form-control" type="text" value={data.product_details} name="product_details" onChange={handle}></textarea>
+                                        <textarea class="form-control" required="required" type="text" value={data.product_details} name="product_details" onChange={handle}></textarea>
                                     </div>
                                 </div>
                                 <div class="form-row">

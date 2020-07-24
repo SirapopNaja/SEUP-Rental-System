@@ -37,4 +37,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'UserController@details');
+Route::put('updatelend/{id}', 'updateController@updatelend');
+Route::put('updatestatus/{product_id}', 'updateController@updatestatus');
+
 });

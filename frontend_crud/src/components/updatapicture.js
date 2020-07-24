@@ -27,18 +27,39 @@ export default function Updatapicture(props) {
     product_type: "",
     product_number: "",
     product_details: "",
+    product_picture: "",
+    lend_day: "",
+    status_id: "1",
   });
+  const [pic, setPic] = useState(0);
+
+
   const handlePicture = (e) => {
     setPicture(e.target.files[0]);
   };
 
+
   useEffect(() => {
+  
+    if (pic === 0) {
+      const id = props.match.params.id;
+      API.get(`api/product/` + id).then((res) => {
+        console.log('testproduct',res.data);
+        setData(res.data);
+      });
+  }
+  else{
     const id = props.match.params.id;
-    API.get(`api/product/` + id).then((res) => {
-      console.log(res.data);
-      setData(res.data);
+    API.put(`api/updatelend/` + id , data).then((res) => {
+      console.log("lend",res.data)
     });
-  }, [props]);
+  }
+  }, [pic]);
+
+
+
+
+  console.log("low",data);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -47,9 +68,13 @@ export default function Updatapicture(props) {
     formData.append("_method", "put");
     const id = props.match.params.id;
     API.post(`api/updatepicture/` + id, formData).then((res) => {
-      console.log(res.data);
+      console.log("product",res.data);
+      setData(res.data);
+      setPic(1)
+    
       props.history.push("/index");
     });
+    console.log("data",data);
   };
   const onSubmitHome = (e) => {
     props.history.push("/index");
@@ -113,6 +138,7 @@ export default function Updatapicture(props) {
                     รูปภาพอุปกรณ์
                     <input
                       type="file"
+                      required="required"
                       name="product_picture"
                       onChange={handlePicture}
                     />

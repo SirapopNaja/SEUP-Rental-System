@@ -93,8 +93,11 @@ export default function Studenthome(props) {
       selector: "product_number",
       sortable: true,
     },
-
-  
+    {
+      name: "ระยะเวลาในการยืม",
+      selector: "lend_day",
+      sortable: true,
+    },
     {
       name: "Status",
       center: true,
