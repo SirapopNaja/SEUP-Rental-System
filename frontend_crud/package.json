@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@trendmicro/react-sidenav": "^0.5.0",
     "antd": "^4.1.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "bootstrap-input-spinner": "^1.13.9",
     "mdbreact": "^4.27.0",
